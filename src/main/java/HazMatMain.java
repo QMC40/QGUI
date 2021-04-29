@@ -7,6 +7,9 @@ Recommend cloning it to desktop then open as new project in NETBEANS
   INCLUDE AT YOUR OWN PERIL
 */
 
+import javax.swing.*;
+import java.awt.*;
+
 public class HazMatMain extends javax.swing.JFrame {
 
     private javax.swing.JButton jButton1;
@@ -22,14 +25,17 @@ public class HazMatMain extends javax.swing.JFrame {
     public HazMatMain() {
 
         initComponents();
-
     }
 
     public static void main(String[] args) {
 
         System.out.println("main page is running..");
+
         //instantiate inventory object
-        HazMatInventory test = new HazMatInventory();
+        HazMatInventory inventory = new HazMatInventory();
+        InventoryGUI inventoryGUI = new InventoryGUI(inventory);
+        InventoryController inventoryController = new InventoryController(inventory,inventoryGUI);
+        inventoryGUI.setVisible(true);
 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -38,13 +44,7 @@ public class HazMatMain extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frontGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frontGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frontGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frontGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -70,10 +70,10 @@ public class HazMatMain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
         jLabel1.setText("MSDS Management System");
 
-        jButton1.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
         jButton1.setText("MSDS");
         /*jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,22 +81,22 @@ public class HazMatMain extends javax.swing.JFrame {
             }
         }); */
 
-        jButton2.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
         jButton2.setText("Manager");
 
-        jButton3.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
         jButton3.setText("Employee");
 
-        jButton4.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
         jButton4.setText("HazMat");
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\james\\Documents\\NetBeansProjects\\MSDSproj\\src\\msdsimage.jpg")); // NOI18N
         jLabel2.setText("jLabel2");
 
-        jButton5.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
         jButton5.setText("Help");
 
-        jButton6.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
         jButton6.setText("Exit");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -147,7 +147,6 @@ public class HazMatMain extends javax.swing.JFrame {
                                                 .addComponent(jButton6)))
                                 .addContainerGap(19, Short.MAX_VALUE))
         );
-
         pack();
     }
 }

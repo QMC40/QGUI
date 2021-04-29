@@ -1,4 +1,3 @@
-import javax.accessibility.AccessibleContext;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -49,9 +48,12 @@ public class HazMatInventory {
         HazMatStock.get(HazMatStock.indexOf(supply)).quantityInStock += quantity;
     }
 
-    public void addHazMatItemToInventory(HazMatItem gain) {
-//        HazMatItem gain = HazMatItem.createHazMatItem();
+    public void addHazMatItemToInventory() {
+        System.out.print("got this far\n");
+        HazMatItem gain = new HazMatItem();
+        new HazMatInputGUI(gain).setVisible(true);
         HazMatStock.add(gain);
+        System.out.println(gain.toString());
     }
 
     public void removeHazMatItemFromInventory(HazMatItem loss) {
@@ -81,6 +83,11 @@ public class HazMatInventory {
         StorageArea storageArea;
         String shelfLocation;
         int quantityInStock;
+
+        public HazMatItem() {
+            this("","",HazMatCategory.FLAMMABLE,StorageArea.COMMON,"",0);
+        }
+
         public HazMatItem(String name, String stockNumber, HazMatCategory hazMatCategory, StorageArea storageArea,
                           String shelfLocation, int stock) {
             this.name = name;

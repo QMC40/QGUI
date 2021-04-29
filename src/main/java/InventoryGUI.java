@@ -1,78 +1,82 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class InventoryGUI extends javax.swing.JFrame {
 
-    public InventoryGUI() {
+    public InventoryGUI(HazMatInventory subj) {
         initComponents();
     }
-    @SuppressWarnings("unchecked")
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        Title = new javax.swing.JLabel();
+        addItem = new javax.swing.JButton();
+        removeItem = new javax.swing.JButton();
+        addInventory = new javax.swing.JButton();
+        issueInventory = new javax.swing.JButton();
+        picture = new javax.swing.JLabel();
+        help = new javax.swing.JButton();
+        back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jLabel1.setText("HazMat Inventory Menu");
+        Title.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        Title.setText("HazMat Inventory Menu");
 
-        jButton1.setBackground(new java.awt.Color(153, 255, 102));
-        jButton1.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jButton1.setText("Add Item");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addItem.setBackground(new java.awt.Color(153, 255, 102));
+        addItem.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        addItem.setText("Add Item");
+        addItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AddItemActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(204, 255, 204));
-        jButton2.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jButton2.setText("Remove Item");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        removeItem.setBackground(new java.awt.Color(204, 255, 204));
+        removeItem.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        removeItem.setText("Remove Item");
+        removeItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                RemoveItemActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(204, 255, 204));
-        jButton3.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jButton3.setText("Add Inventory");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        addInventory.setBackground(new java.awt.Color(204, 255, 204));
+        addInventory.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        addInventory.setText("Add Inventory");
+        addInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                AddInventoryActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 204, 0));
-        jButton4.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jButton4.setText("Issue Inventory");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        issueInventory.setBackground(new java.awt.Color(255, 204, 0));
+        issueInventory.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        issueInventory.setText("Issue Inventory");
+        issueInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                IssueInventoryActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("jLabel2");
+        picture.setText("jLabel2");
 
-        jButton5.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jButton5.setText("Help");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        help.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        help.setText("Help");
+        help.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                HelpActionPerformed(evt);
             }
         });
 
-        jButton6.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jButton6.setText("Back");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        back.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        back.setText("Back");
+        back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                BackActionPerformed(evt);
             }
         });
 
@@ -84,22 +88,22 @@ public class InventoryGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(issueInventory, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addInventory, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(removeItem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton5)
+                        .addComponent(help)
                         .addGap(60, 60, 60)
-                        .addComponent(jButton6))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(back))
+                    .addComponent(picture, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -108,63 +112,64 @@ public class InventoryGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
+                        .addComponent(addItem)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)
+                        .addComponent(removeItem)
                         .addGap(13, 13, 13)
-                        .addComponent(jButton3)
+                        .addComponent(addInventory)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton5)
-                                .addComponent(jButton6))
-                            .addComponent(jButton4)))
+                                .addComponent(help)
+                                .addComponent(back))
+                            .addComponent(issueInventory)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(picture, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AddItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_AddItemActionPerformed
                                          
             System.out.println("testing add item button click");
 //            HazMatInputGUI input = new HazMatInputGUI();
-            new HazMatInputGUI().setVisible(true);
-            this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+//            new HazMatInputGUI().setVisible(true);
+//            this.dispose();
+    }//GEN-LAST:event_AddItemActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void IssueInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IssueInventoryActionPerformed
             System.out.println("testing remove item button click");
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_IssueInventoryActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void RemoveItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveItemActionPerformed
                                                  
             System.out.println("testing add stock button click");
             HazMatItemStockGUI input = new HazMatItemStockGUI();
             input.setVisible(true);
             this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_RemoveItemActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-            System.out.println("testing issue stock button click");
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void AddInventoryActionPerformed(ActionEvent evt) {//GEN-FIRST:event_AddInventoryActionPerformed
+            System.out.println("testing add inventory button click");
+    }//GEN-LAST:event_AddInventoryActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpActionPerformed
             System.out.println("testing Help button click");
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_HelpActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void BackActionPerformed(ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
             System.out.println("testing back button click");
             new frontGUI().setVisible(true);
             this.dispose();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_BackActionPerformed
 
-    public static void callmyGui(){
+    public static void callmyGui(HazMatInventory subj){
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -172,13 +177,7 @@ public class InventoryGUI extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InventoryGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InventoryGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InventoryGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(InventoryGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -186,19 +185,24 @@ public class InventoryGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InventoryGUI().setVisible(true);
+                new InventoryGUI(subj).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton addInventory;
+    private javax.swing.JButton addItem;
+    private javax.swing.JButton back;
+    private javax.swing.JButton help;
+    private javax.swing.JButton issueInventory;
+    private javax.swing.JLabel picture;
+    private javax.swing.JButton removeItem;
+    private javax.swing.JLabel Title;
     // End of variables declaration//GEN-END:variables
+
+    void addItemActionPerformedListener(ActionListener mal) {
+        addItem.addActionListener(mal);
+    }
+
 }

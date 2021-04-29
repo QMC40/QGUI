@@ -1,4 +1,7 @@
 
+import javax.swing.*;
+import java.awt.*;
+
 import static java.lang.System.exit;
 
 
@@ -7,75 +10,77 @@ public class frontGUI extends javax.swing.JFrame {
     public frontGUI() {
         initComponents();
     }
-    @SuppressWarnings("unchecked")
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        Title = new javax.swing.JLabel();
+        MSDS = new javax.swing.JButton();
+        Manager = new javax.swing.JButton();
+        Employee = new javax.swing.JButton();
+        HazMat = new javax.swing.JButton();
+        Picture = new javax.swing.JLabel();
+        Help = new javax.swing.JButton();
+        Exit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setLocationByPlatform(true);
 
-        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jLabel1.setText("MSDS Management System");
+        Title.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        Title.setText("MSDS Management System");
 
-        jButton1.setBackground(new java.awt.Color(153, 255, 102));
-        jButton1.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jButton1.setText("MSDS");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        MSDS.setBackground(new java.awt.Color(153, 255, 102));
+        MSDS.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        MSDS.setText("MSDS");
+        MSDS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                MSDSActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(204, 255, 204));
-        jButton2.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jButton2.setText("Manager");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Manager.setBackground(new java.awt.Color(204, 255, 204));
+        Manager.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        Manager.setText("Manager");
+        Manager.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                ManagerActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(204, 255, 204));
-        jButton3.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jButton3.setText("Employee");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Employee.setBackground(new java.awt.Color(204, 255, 204));
+        Employee.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        Employee.setText("Employee");
+        Employee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                EmployeeActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 204, 0));
-        jButton4.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jButton4.setText("HazMat");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        HazMat.setBackground(new java.awt.Color(255, 204, 0));
+        HazMat.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        HazMat.setText("HazMat");
+        HazMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                HazMatActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("jLabel2");
+        Picture.setText("jLabel2");
 
-        jButton5.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jButton5.setText("Help");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        Help.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        Help.setText("Help");
+        Help.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                HelpActionPerformed(evt);
             }
         });
 
-        jButton6.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jButton6.setText("Exit");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        Exit.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        Exit.setText("Exit");
+        Exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                ExitActionPerformed(evt);
             }
         });
 
@@ -87,23 +92,23 @@ public class frontGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MSDS, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(HazMat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Employee, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Manager, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton5)
+                        .addComponent(Help)
                         .addGap(60, 60, 60)
-                        .addComponent(jButton6))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Exit))
+                    .addComponent(Picture, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -112,55 +117,56 @@ public class frontGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
+                        .addComponent(MSDS)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)
+                        .addComponent(Manager)
                         .addGap(13, 13, 13)
-                        .addComponent(jButton3)
+                        .addComponent(Employee)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton5)
-                                .addComponent(jButton6))
-                            .addComponent(jButton4)))
+                                .addComponent(Help)
+                                .addComponent(Exit))
+                            .addComponent(HazMat)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Picture, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void MSDSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MSDSActionPerformed
                                          
             System.out.println("testing MSDS button click");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_MSDSActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void HazMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HazMatActionPerformed
             System.out.println("testing HazMat button click");
-            new InventoryGUI().setVisible(true);
-            this.dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
+//            new InventoryGUI().setVisible(true);
+//            this.dispose();
+    }//GEN-LAST:event_HazMatActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void ManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManagerActionPerformed
                                                  
             System.out.println("testing Manager button click");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_ManagerActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void EmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeActionPerformed
             System.out.println("testing Employee button click");
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_EmployeeActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpActionPerformed
          System.out.println("testing Help button click");
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_HelpActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
         exit(1);
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_ExitActionPerformed
 
     public static void callmyGui(){
         try {
@@ -170,13 +176,7 @@ public class frontGUI extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frontGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frontGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frontGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frontGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -190,13 +190,13 @@ public class frontGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton Employee;
+    private javax.swing.JButton Exit;
+    private javax.swing.JButton HazMat;
+    private javax.swing.JButton Help;
+    private javax.swing.JButton MSDS;
+    private javax.swing.JButton Manager;
+    private javax.swing.JLabel Picture;
+    private javax.swing.JLabel Title;
     // End of variables declaration//GEN-END:variables
 }
