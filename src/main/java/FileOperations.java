@@ -33,7 +33,6 @@ public class FileOperations
         }
         fw.flush();
         fw.close();
-
     }
 
     public static List<MSDSObject> readINTOListMSDSFromCSV(String fileName)
