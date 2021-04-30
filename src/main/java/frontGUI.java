@@ -143,6 +143,8 @@ public class frontGUI extends javax.swing.JFrame {
     private void MSDSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MSDSActionPerformed
                                          
             System.out.println("testing MSDS button click");
+
+
     }//GEN-LAST:event_MSDSActionPerformed
 
     private void HazMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HazMatActionPerformed

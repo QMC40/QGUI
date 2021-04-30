@@ -9,6 +9,9 @@ Recommend cloning it to desktop then open as new project in NETBEANS
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.util.*;
+import java.util.List;
 
 public class HazMatMain extends javax.swing.JFrame {
 
@@ -26,7 +29,12 @@ public class HazMatMain extends javax.swing.JFrame {
         initComponents();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
+        List<MSDSObject> msds = FileOperations.readINTOListMSDSFromCSV("D:\\School\\Spr " +
+                "21\\OOP\\QGUI\\src\\main\\java\\MSDS_Data_CSV_File.csv");
+
+        new DisplayMSDSTable(msds);
 
         System.out.println("main page is running..");
 
@@ -51,7 +59,7 @@ public class HazMatMain extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-//                new frontGUI().setVisible(true);
+                new frontGUI().setVisible(true);
             }
         });
     }
