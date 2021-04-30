@@ -176,7 +176,12 @@ public class HazMatInputGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void discardItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardItemActionPerformed
-        // TODO add your handling code here:
+        itemName.setText("");
+        itemStockNum.setText("");
+        ShelfLocation.setText("");
+        HazMatCat.setSelectedItem("Flammable");
+        StorageArea.setSelectedItem("Common Area");
+        quantityInStock.setText("");
     }//GEN-LAST:event_discardItemActionPerformed
 
     private void HazMatCatActionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,22 +232,22 @@ public class HazMatInputGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> HazMatCat;
-    private javax.swing.JTextField ShelfLocation;
-    private javax.swing.JComboBox<String> StorageArea;
     private javax.swing.JLabel Title;
-    private javax.swing.JButton backButton;
-    private javax.swing.JButton discardItem;
     private javax.swing.JTextField itemName;
     private javax.swing.JTextField itemStockNum;
+    private javax.swing.JTextField ShelfLocation;
+    private javax.swing.JComboBox<String> HazMatCat;
+    private javax.swing.JComboBox<String> StorageArea;
+    private javax.swing.JTextField quantityInStock;
+    private javax.swing.JButton saveItem;
+    private javax.swing.JButton discardItem;
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField quantityInStock;
-    private javax.swing.JButton saveItem;
     // End of variables declaration//GEN-END:variables
 
     public String getItemName() {

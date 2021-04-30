@@ -6,6 +6,10 @@ public class HazMatInventory {
     //NOT THREAD SAFE / NOT SELF-SYNCHRONIZING!!!
     private ArrayList<HazMatItem> HazMatStock = new ArrayList<>();
 
+    public ArrayList<HazMatItem> getArrayList() {
+        return HazMatStock;
+    }
+
     //another possible interface opportunity?
     //public interface HazMatInventoryAccess {}
     private ArrayList<HazMatItem> WasteInventory = new ArrayList<>();
