@@ -20,8 +20,29 @@ public class MSDSObject
     private String S16_Other_Information;
 
     public int number_of_sections;
-//
+    //
     public String[] Array_Of_Section_Information;
+
+    public MSDSObject(String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8, String s9, String s10, String s11, String s12, String s13, String s14, String s15, String s16)
+    {
+
+        this.S1_Identification = s1;
+        this.S2_Hazards_Identification = s2;
+        this.S3_Composition_Information_Ingredients = s3;
+        this.S4_First_Aid_Measures = s4;
+        this.S5_Fire_Fighting_Measures = s5;
+        this.S6_Accidental_Release_Measures = s6;
+        this.S7_Handling_and_Storage = s7;
+        this.S8_Exposure_Controls_Personal_Protection = s8;
+        this.S9_Physical_and_Chemical_Properties = s9;
+        this.S10_Stability_and_Reactivity = s10;
+        this.S11_Toxicological_Information = s11;
+        this.S12_Ecological_Information = s12;
+        this.S13_Disposal_Considerations = s13;
+        this.S14_Transport_Information = s14;
+        this.S15_Regulatory_Information = s15;
+        this.S16_Other_Information = s16;
+    }
 
     public MSDSObject()
     {
@@ -374,5 +395,27 @@ public class MSDSObject
 
     public void setS16_Other_Information(String s16_Other_Information) {
         S16_Other_Information = s16_Other_Information;
+    }
+
+    @Override
+    public String toString() {
+        return "MSDSObject{" +
+                "S1_Identification='" + S1_Identification + '\'' +
+                ", S2_Hazards_Identification='" + S2_Hazards_Identification + '\'' +
+                ", S3_Composition_Information_Ingredients='" + S3_Composition_Information_Ingredients + '\'' +
+                ", S4_First_Aid_Measures='" + S4_First_Aid_Measures + '\'' +
+                ", S5_Fire_Fighting_Measures='" + S5_Fire_Fighting_Measures + '\'' +
+                ", S6_Accidental_Release_Measures='" + S6_Accidental_Release_Measures + '\'' +
+                ", S7_Handling_and_Storage='" + S7_Handling_and_Storage + '\'' +
+                ", S8_Exposure_Controls_Personal_Protection='" + S8_Exposure_Controls_Personal_Protection + '\'' +
+                ", S9_Physical_and_Chemical_Properties='" + S9_Physical_and_Chemical_Properties + '\'' +
+                ", S10_Stability_and_Reactivity='" + S10_Stability_and_Reactivity + '\'' +
+                ", S11_Toxicological_Information='" + S11_Toxicological_Information + '\'' +
+                ", S12_Ecological_Information='" + S12_Ecological_Information + '\'' +
+                ", S13_Disposal_Considerations='" + S13_Disposal_Considerations + '\'' +
+                ", S14_Transport_Information='" + S14_Transport_Information + '\'' +
+                ", S15_Regulatory_Information='" + S15_Regulatory_Information + '\'' +
+                ", S16_Other_Information='" + S16_Other_Information + '\'' +
+                '}';
     }
 }
