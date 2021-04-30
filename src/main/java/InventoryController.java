@@ -8,6 +8,7 @@ public class InventoryController {
         this.GUI = GUI;
 
         GUI.addItemActionPerformedListener(new addItemListener());
+
     }
 
     private HazMatInventory inventory;
@@ -22,6 +23,33 @@ public class InventoryController {
                 itemGUI = new HazMatInputGUI(inventory);
                 GUI.setVisible(false);
                 itemGUI.setVisible(true);
+                itemGUI.saveItemActionPerformedListener(new saveItemListener());
+                itemGUI.backActionPerformedListener(new backListener());
+            } catch (Exception e) {
+                System.out.println("something wrong in addItemActionListener");
+            }
+        }
+    }
+
+    class saveItemListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent a) {
+
+            try {
+                GUI.setVisible(true);
+                itemGUI.dispose();
+            } catch (Exception e) {
+                System.out.println("something wrong in addItemActionListener");
+            }
+        }
+    }
+    class backListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent a) {
+
+            try {
+                GUI.setVisible(true);
+                itemGUI.dispose();
             } catch (Exception e) {
                 System.out.println("something wrong in addItemActionListener");
             }

@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class HazMatInputGUI extends javax.swing.JFrame {
 
@@ -20,6 +21,12 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         ShelfLocation = new javax.swing.JTextField();
         quantityInStock = new javax.swing.JTextField();
         backButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -27,7 +34,6 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         Title.setText("HazMat Inventory Menu");
 
         itemName.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
-        itemName.setText("name");
         itemName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemNameActionPerformed(evt);
@@ -37,11 +43,16 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         saveItem.setText("Save");
         saveItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveItemActionPerformed(evt, inventory);
+                saveItemActionPerformed(evt,inventory);
             }
         });
 
         discardItem.setText("Discard");
+        discardItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discardItemActionPerformed(evt);
+            }
+        });
 
         HazMatCat.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
         HazMatCat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TOXIC", "FLAMMABLE", "EXPLOSIVE", "OXIDIZING", "CORROSIVE", "COMPRESSEDGAS", "REACTIVE", "SPECIAL", "HEALTHHAZARD", "ORGANICPEROXIDES" }));
@@ -55,20 +66,29 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         StorageArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "COMMON AREA", "FLAMMABLE LOCKER", "GAS CYLINDER ENCLOSURE", "REACTIVE LOCKER", "SPECIAL LOCKER" }));
 
         itemStockNum.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
-        itemStockNum.setText("Stock number");
 
         ShelfLocation.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
-        ShelfLocation.setText("Shelf Location");
 
         quantityInStock.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
-        quantityInStock.setText("Quantity in stock");
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButton1ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
+
+        jLabel1.setText("Name");
+
+        jLabel2.setText("Stock number");
+
+        jLabel3.setText("Location");
+
+        jLabel4.setText("Category");
+
+        jLabel5.setText("Storage area");
+
+        jLabel6.setText("Quantity");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,25 +97,35 @@ public class HazMatInputGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(49, Short.MAX_VALUE)
+                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(itemName)
                             .addComponent(itemStockNum)
-                            .addComponent(ShelfLocation)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(49, Short.MAX_VALUE)
-                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ShelfLocation)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(StorageArea, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(quantityInStock)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(saveItem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(discardItem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(HazMatCat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(StorageArea, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(quantityInStock)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(saveItem)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(discardItem)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(HazMatCat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
                 .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
@@ -103,15 +133,27 @@ public class HazMatInputGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(4, 4, 4)
                 .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4))
+                .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(itemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(HazMatCat))
-                .addGap(28, 28, 28)
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(itemStockNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(StorageArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ShelfLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(quantityInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -132,6 +174,10 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void discardItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_discardItemActionPerformed
 
     private void HazMatCatActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
@@ -155,10 +201,8 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         this.dispose();
     }
 
-    private void backButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {
         System.out.println("testing back button click");
-//        new InventoryGUI().setVisible(true);
-//        this.dispose();
     }
 
     public static void callmyGui(HazMatInventory inventory){
@@ -183,16 +227,22 @@ public class HazMatInputGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Title;
     private javax.swing.JComboBox<String> HazMatCat;
     private javax.swing.JTextField ShelfLocation;
     private javax.swing.JComboBox<String> StorageArea;
+    private javax.swing.JLabel Title;
+    private javax.swing.JButton backButton;
+    private javax.swing.JButton discardItem;
     private javax.swing.JTextField itemName;
     private javax.swing.JTextField itemStockNum;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField quantityInStock;
-    private javax.swing.JButton discardItem;
     private javax.swing.JButton saveItem;
-    private javax.swing.JButton backButton;
     // End of variables declaration//GEN-END:variables
 
     public String getItemName() {
@@ -211,7 +261,13 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         return itemStockNum.getText();
     }
     public int getQuantityInStock() {
-//        System.out.printf(" return int: %d\n",Integer.parseInt(quantityInStock.getText()));
-        return 5;
+        return Integer.parseInt(quantityInStock.getText());
+    }
+
+    void saveItemActionPerformedListener(ActionListener mal) {
+        saveItem.addActionListener(mal);
+    }
+    void backActionPerformedListener(ActionListener mal) {
+        backButton.addActionListener(mal);
     }
 }

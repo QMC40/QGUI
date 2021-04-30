@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class HazMatItemStockGUI extends javax.swing.JFrame {
 
@@ -10,62 +11,72 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Title = new javax.swing.JLabel();
-        itemName = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        StockNum = new javax.swing.JTextField();
-        Quantity = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        Title = new JLabel();
+        itemName = new JTextField();
+        jButton7 = new JButton();
+        jButton8 = new JButton();
+        StockNum = new JTextField();
+        Quantity = new JTextField();
+        jButton1 = new JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        Title.setFont(new java.awt.Font("Monospaced", Font.PLAIN, 18)); // NOI18N
+        Title.setFont(new Font("Monospaced", Font.BOLD, 18)); // NOI18N
         Title.setText("Add stock to inventory");
 
-        itemName.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
+        itemName.setFont(new Font("Tahoma", Font.PLAIN, 14)); // NOI18N
         itemName.setText("name");
-        itemName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        itemName.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 NameActionPerformed(evt);
             }
         });
 
         jButton7.setText("Save");
+        jButton7.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setText("Discard");
+        jButton8.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
-        StockNum.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
+        StockNum.setFont(new Font("Tahoma", Font.PLAIN, 14)); // NOI18N
         StockNum.setText("Stock number");
 
-        Quantity.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
+        Quantity.setFont(new Font("Tahoma", Font.PLAIN, 14)); // NOI18N
         Quantity.setText("Quantity in stock");
 
         jButton1.setText("Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Title, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(itemName)
                             .addComponent(StockNum)
@@ -73,18 +84,18 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Title, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(itemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(itemName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(StockNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(StockNum, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(Quantity, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton7)
                     .addComponent(jButton8)
                     .addComponent(jButton1))
@@ -107,6 +118,14 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
 //        new InventoryGUI().setVisible(true);
 //        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     public static void callmyGui(HazMatInventory.HazMatItem gain, HazMatInventory subj){
         try {
