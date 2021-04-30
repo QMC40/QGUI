@@ -3,17 +3,19 @@ import java.awt.event.ActionListener;
 
 public class InventoryController {
 
-    public InventoryController(HazMatInventory inventory, InventoryGUI GUI) {
+    public InventoryController(HazMatInventory inventory, InventoryGUI invenGUI) {
         this.inventory = inventory;
-        this.GUI = GUI;
+        this.invenGUI = invenGUI;
 
-        GUI.addItemActionPerformedListener(new addItemListener());
+        invenGUI.addItemActionPerformedListener(new addItemListener());
+        invenGUI.addInventoryActionPerformedListener(new addInventoryListener());
 
     }
 
     private HazMatInventory inventory;
-    private InventoryGUI GUI;
+    private InventoryGUI invenGUI;
     private HazMatInputGUI itemGUI;
+    private HazMatItemStockGUI stockGUI;
 
     class addItemListener implements ActionListener {
         @Override
@@ -21,7 +23,7 @@ public class InventoryController {
 
             try {
                 itemGUI = new HazMatInputGUI(inventory);
-                GUI.setVisible(false);
+                invenGUI.setVisible(false);
                 itemGUI.setVisible(true);
                 itemGUI.saveItemActionPerformedListener(new saveItemListener());
                 itemGUI.backActionPerformedListener(new backListener());
@@ -30,14 +32,26 @@ public class InventoryController {
             }
         }
     }
-
     class saveItemListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent a) {
+            try {
+                invenGUI.setVisible(true);
+            } catch (Exception e) {
+                System.out.println("something wrong in addItemActionListener");
+            }
+        }
+    }
+    class addInventoryListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent a) {
 
             try {
-                GUI.setVisible(true);
-                itemGUI.dispose();
+                stockGUI = new HazMatItemStockGUI(inventory);
+                invenGUI.setVisible(false);
+                stockGUI.setVisible(true);
+//                stockGUI.saveItemActionPerformedListener(new saveItemListener());
+//                stockGUI.backActionPerformedListener(new backListener());
             } catch (Exception e) {
                 System.out.println("something wrong in addItemActionListener");
             }
@@ -48,8 +62,7 @@ public class InventoryController {
         public void actionPerformed(ActionEvent a) {
 
             try {
-                GUI.setVisible(true);
-                itemGUI.dispose();
+                invenGUI.setVisible(true);
             } catch (Exception e) {
                 System.out.println("something wrong in addItemActionListener");
             }

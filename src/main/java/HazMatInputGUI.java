@@ -22,6 +22,7 @@ public class HazMatInputGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+
     public HazMatInputGUI(HazMatInventory inventory) {
         initComponents(inventory);
     }
@@ -73,11 +74,11 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         Title.setText("HazMat Inventory Menu");
 
         itemName.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
-        itemName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemNameActionPerformed(evt);
-            }
-        });
+//        itemName.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                itemNameActionPerformed(evt);
+//            }
+//        });
 
         saveItem.setText("Save");
         saveItem.addActionListener(new java.awt.event.ActionListener() {
@@ -95,11 +96,11 @@ public class HazMatInputGUI extends javax.swing.JFrame {
 
         HazMatCat.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
         HazMatCat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"TOXIC", "FLAMMABLE", "EXPLOSIVE", "OXIDIZING", "CORROSIVE", "COMPRESSEDGAS", "REACTIVE", "SPECIAL", "HEALTHHAZARD", "ORGANICPEROXIDES"}));
-        HazMatCat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HazMatCatActionPerformed(evt);
-            }
-        });
+//        HazMatCat.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                HazMatCatActionPerformed(evt);
+//            }
+//        });
 
         StorageArea.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
         StorageArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"COMMON AREA", "FLAMMABLE LOCKER", "GAS CYLINDER ENCLOSURE", "REACTIVE LOCKER", "SPECIAL LOCKER"}));
@@ -214,23 +215,6 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void discardItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardItemActionPerformed
-        itemName.setText("");
-        itemStockNum.setText("");
-        ShelfLocation.setText("");
-        HazMatCat.setSelectedItem("Flammable");
-        StorageArea.setSelectedItem("Common Area");
-        quantityInStock.setText("");
-    }//GEN-LAST:event_discardItemActionPerformed
-
-    private void HazMatCatActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void itemNameActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
     private void saveItemActionPerformed(ActionEvent evt, HazMatInventory inventory) {
         System.out.println("input save button pushed");
         HazMatInventory.HazMatItem temp;
@@ -248,6 +232,25 @@ public class HazMatInputGUI extends javax.swing.JFrame {
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {
         System.out.println("testing back button click");
     }
+
+    private void discardItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardItemActionPerformed
+        itemName.setText("");
+        itemStockNum.setText("");
+        ShelfLocation.setText("");
+        HazMatCat.setSelectedItem("Flammable");
+        StorageArea.setSelectedItem("Common Area");
+        quantityInStock.setText("");
+    }
+
+//    private void HazMatCatActionPerformed(java.awt.event.ActionEvent evt) {
+//        // TODO add your handling code here:
+//    }
+
+//    private void itemNameActionPerformed(java.awt.event.ActionEvent evt) {
+//        // TODO add your handling code here:
+//    }
+
+
     // End of variables declaration//GEN-END:variables
 
     public String getItemName() {
@@ -275,9 +278,9 @@ public class HazMatInputGUI extends javax.swing.JFrame {
             return Integer.parseInt(quantityInStock.getText());
         } catch (NumberFormatException e) {
             return 0;
-    }
+        }
 
-}
+    }
 
     void saveItemActionPerformedListener(ActionListener mal) {
         saveItem.addActionListener(mal);

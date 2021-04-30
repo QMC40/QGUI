@@ -12,18 +12,17 @@ import java.awt.*;
 
 public class HazMatMain extends javax.swing.JFrame {
 
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel frameTitle;
+    private javax.swing.JLabel picture;
+    private javax.swing.JButton msdsButton;
+    private javax.swing.JButton managerButton;
+    private javax.swing.JButton employeeButton;
+    private javax.swing.JButton hazMatButton;
+    private javax.swing.JButton helpButton;
+    private javax.swing.JButton exitButton;
 
     // constructor for front gui and driver code
     public HazMatMain() {
-
         initComponents();
     }
 
@@ -59,45 +58,45 @@ public class HazMatMain extends javax.swing.JFrame {
 
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        frameTitle = new javax.swing.JLabel();
+        msdsButton = new javax.swing.JButton();
+        managerButton = new javax.swing.JButton();
+        employeeButton = new javax.swing.JButton();
+        hazMatButton = new javax.swing.JButton();
+        picture = new javax.swing.JLabel();
+        helpButton = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
-        jLabel1.setText("MSDS Management System");
+        frameTitle.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        frameTitle.setText("msdsButton Management System");
 
-        jButton1.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
-        jButton1.setText("MSDS");
-        /*jButton1.addActionListener(new java.awt.event.ActionListener() {
+        msdsButton.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        msdsButton.setText("msdsButton");
+        /*msdsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                msdsButtonActionPerformed(evt);
             }
         }); */
 
-        jButton2.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
-        jButton2.setText("Manager");
+        managerButton.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        managerButton.setText("Manager");
 
-        jButton3.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
-        jButton3.setText("Employee");
+        employeeButton.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        employeeButton.setText("Employee");
 
-        jButton4.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
-        jButton4.setText("HazMat");
+        hazMatButton.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        hazMatButton.setText("HazMat");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\james\\Documents\\NetBeansProjects\\MSDSproj\\src\\msdsimage.jpg")); // NOI18N
-        jLabel2.setText("jLabel2");
+        picture.setIcon(new javax.swing.ImageIcon("C:\\Users\\james\\Documents\\NetBeansProjects\\msdsButtonproj\\src\\msdsButtonimage.jpg")); // NOI18N
+        picture.setText("picture");
 
-        jButton5.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
-        jButton5.setText("Help");
+        helpButton.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        helpButton.setText("Help");
 
-        jButton6.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
-        jButton6.setText("Exit");
+        exitButton.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        exitButton.setText("Exit");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,22 +105,22 @@ public class HazMatMain extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(frameTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGap(24, 24, 24)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(msdsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                                .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                                .addComponent(hazMatButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(employeeButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(managerButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jButton5)
+                                                .addComponent(helpButton)
                                                 .addGap(50, 50, 50)
-                                                .addComponent(jButton6))
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(exitButton))
+                                        .addComponent(picture, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,22 +128,22 @@ public class HazMatMain extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGap(4, 4, 4)
-                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(frameTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(msdsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jButton2)
+                                                .addComponent(managerButton)
                                                 .addGap(13, 13, 13)
-                                                .addComponent(jButton3))
+                                                .addComponent(employeeButton))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addContainerGap()
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(picture, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton4)
+                                        .addComponent(hazMatButton)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jButton5)
-                                                .addComponent(jButton6)))
+                                                .addComponent(helpButton)
+                                                .addComponent(exitButton)))
                                 .addContainerGap(19, Short.MAX_VALUE))
         );
         pack();

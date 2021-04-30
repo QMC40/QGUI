@@ -5,129 +5,20 @@ import java.awt.event.ActionListener;
 
 public class HazMatItemStockGUI extends javax.swing.JFrame {
 
-    public HazMatItemStockGUI() {
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Title;
+    private javax.swing.JTextField itemName;
+    private javax.swing.JTextField Quantity;
+    private javax.swing.JTextField StockNum;
+    private javax.swing.JButton save;
+    private javax.swing.JButton discard;
+    private javax.swing.JButton back;
+
+    public HazMatItemStockGUI(HazMatInventory subj) {
         initComponents();
     }
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
 
-        Title = new JLabel();
-        itemName = new JTextField();
-        jButton7 = new JButton();
-        jButton8 = new JButton();
-        StockNum = new JTextField();
-        Quantity = new JTextField();
-        jButton1 = new JButton();
-
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        Title.setFont(new Font("Monospaced", Font.BOLD, 18)); // NOI18N
-        Title.setText("Add stock to inventory");
-
-        itemName.setFont(new Font("Tahoma", Font.PLAIN, 14)); // NOI18N
-        itemName.setText("name");
-        itemName.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                NameActionPerformed(evt);
-            }
-        });
-
-        jButton7.setText("Save");
-        jButton7.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-
-        jButton8.setText("Discard");
-        jButton8.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        StockNum.setFont(new Font("Tahoma", Font.PLAIN, 14)); // NOI18N
-        StockNum.setText("Stock number");
-
-        Quantity.setFont(new Font("Tahoma", Font.PLAIN, 14)); // NOI18N
-        Quantity.setText("Quantity in stock");
-
-        jButton1.setText("Back");
-        jButton1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        GroupLayout layout = new GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Title, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton7)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton8)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(itemName)
-                            .addComponent(StockNum)
-                            .addComponent(Quantity))))
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addComponent(Title, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(itemName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(StockNum, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Quantity, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8)
-                    .addComponent(jButton1))
-                .addContainerGap())
-        );
-
-        itemName.getAccessibleContext().setAccessibleName("name");
-        itemName.getAccessibleContext().setAccessibleDescription("name");
-
-        pack();
-        setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
-
-    private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NameActionPerformed
-
-    private void jButton1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println("testing back button click");
-//        new InventoryGUI().setVisible(true);
-//        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    public static void callmyGui(HazMatInventory.HazMatItem gain, HazMatInventory subj){
+    public static void callmyGui(HazMatInventory.HazMatItem gain, HazMatInventory subj) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -148,15 +39,112 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField itemName;
-    private javax.swing.JTextField Quantity;
-    private javax.swing.JTextField StockNum;
-    private javax.swing.JLabel Title;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    // End of variables declaration//GEN-END:variables
+    private void initComponents() {
+
+        Title = new JLabel();
+        itemName = new JTextField();
+        save = new JButton();
+        discard = new JButton();
+        StockNum = new JTextField();
+        Quantity = new JTextField();
+        back = new JButton();
+
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        Title.setFont(new Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        Title.setText("Add stock to inventory");
+
+        itemName.setFont(new Font("Tahoma", Font.PLAIN, 14)); // NOI18N
+        itemName.setText("name");
+
+        save.setText("Save");
+        save.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                saveActionPerformed(evt);
+            }
+        });
+
+        discard.setText("Discard");
+        discard.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                discardActionPerformed(evt);
+            }
+        });
+
+        StockNum.setFont(new Font("Tahoma", Font.PLAIN, 14)); // NOI18N
+        StockNum.setText("Stock number");
+
+        Quantity.setFont(new Font("Tahoma", Font.PLAIN, 14)); // NOI18N
+        Quantity.setText("Quantity in stock");
+
+        back.setText("Back");
+        back.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
+        GroupLayout layout = new GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(Title, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(45, 45, 45)
+                                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(save)
+                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(discard)
+                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(back, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(0, 0, Short.MAX_VALUE))
+                                                        .addComponent(itemName)
+                                                        .addComponent(StockNum)
+                                                        .addComponent(Quantity))))
+                                .addContainerGap(42, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(Title, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(itemName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(StockNum, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Quantity, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                        .addComponent(save)
+                                        .addComponent(discard)
+                                        .addComponent(back))
+                                .addContainerGap())
+        );
+
+        itemName.getAccessibleContext().setAccessibleName("name");
+        itemName.getAccessibleContext().setAccessibleDescription("name");
+
+        pack();
+        setLocationRelativeTo(null);
+    }
+
+    private void backButtonActionPerformed(ActionEvent evt) {
+        System.out.println("testing back button click");
+    }
+
+    private void discardActionPerformed(java.awt.event.ActionEvent evt) {
+        System.out.println("discard button click");
+    }
+
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
 
     public JTextField getItemName() {
         return itemName;
@@ -169,5 +157,45 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
     public JTextField getStockNum() {
         return StockNum;
     }
+
+    private void AddItemActionPerformed(ActionEvent evt) {
+
+        System.out.println("testing add item button click");
+//            HazMatInputGUI input = new HazMatInputGUI();
+//            new HazMatInputGUI().setVisible(true);
+//            this.dispose();
+    }
+
+    private void IssueInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IssueInventoryActionPerformed
+        System.out.println("testing remove item button click");
+    }
+
+    private void RemoveItemActionPerformed(java.awt.event.ActionEvent evt) {
+
+        System.out.println("testing add stock button click");
+
+    }
+
+    private void AddInventoryActionPerformed(ActionEvent evt) {
+        System.out.println("testing add inventory button click");
+    }
+
+    private void HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpActionPerformed
+        System.out.println("testing Help button click");
+    }
+
+    private void BackActionPerformed(ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+        System.out.println("testing back button click");
+        new frontGUI().setVisible(true);
+        this.dispose();
+    }
+
+//    void addItemActionPerformedListener(ActionListener mal) {
+//        addItem.addActionListener(mal);
+//    }
+//
+//    void addIventoryActionPerformedListener(ActionListener mal) {
+//        addInventory.addActionListener(mal);
+//    }
 
 }
