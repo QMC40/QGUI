@@ -11,7 +11,7 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         Title = new javax.swing.JLabel();
-        Name = new javax.swing.JTextField();
+        itemName = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         StockNum = new javax.swing.JTextField();
@@ -23,9 +23,9 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
         Title.setFont(new java.awt.Font("Monospaced", Font.PLAIN, 18)); // NOI18N
         Title.setText("Add stock to inventory");
 
-        Name.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
-        Name.setText("name");
-        Name.addActionListener(new java.awt.event.ActionListener() {
+        itemName.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
+        itemName.setText("name");
+        itemName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NameActionPerformed(evt);
             }
@@ -67,7 +67,7 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(Name)
+                            .addComponent(itemName)
                             .addComponent(StockNum)
                             .addComponent(Quantity))))
                 .addContainerGap(42, Short.MAX_VALUE))
@@ -78,7 +78,7 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(itemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(StockNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -91,8 +91,8 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Name.getAccessibleContext().setAccessibleName("name");
-        Name.getAccessibleContext().setAccessibleDescription("name");
+        itemName.getAccessibleContext().setAccessibleName("name");
+        itemName.getAccessibleContext().setAccessibleDescription("name");
 
         pack();
         setLocationRelativeTo(null);
@@ -108,7 +108,7 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
 //        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public static void callmyGui(HazMatInventory.HazMatItem gain){
+    public static void callmyGui(HazMatInventory.HazMatItem gain, HazMatInventory subj){
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -124,13 +124,13 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HazMatInputGUI(gain).setVisible(true);
+                new HazMatInputGUI(subj).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Name;
+    private javax.swing.JTextField itemName;
     private javax.swing.JTextField Quantity;
     private javax.swing.JTextField StockNum;
     private javax.swing.JLabel Title;
@@ -138,4 +138,17 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     // End of variables declaration//GEN-END:variables
+
+    public JTextField getItemName() {
+        return itemName;
+    }
+
+    public JTextField getQuantity() {
+        return Quantity;
+    }
+
+    public JTextField getStockNum() {
+        return StockNum;
+    }
+
 }

@@ -1,15 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class HazMatInputGUI extends javax.swing.JFrame {
 
-    public HazMatInputGUI(HazMatInventory.HazMatItem temp) {
-        initComponents();
+    public HazMatInputGUI(HazMatInventory inventory) {
+        initComponents(inventory);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents(HazMatInventory inventory) {
 
-        TItle = new javax.swing.JLabel();
+        Title = new javax.swing.JLabel();
         itemName = new javax.swing.JTextField();
         saveItem = new javax.swing.JButton();
         discardItem = new javax.swing.JButton();
@@ -18,12 +19,12 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         itemStockNum = new javax.swing.JTextField();
         ShelfLocation = new javax.swing.JTextField();
         quantityInStock = new javax.swing.JTextField();
-        backButtontton1 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        TItle.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
-        TItle.setText("HazMat Inventory Menu");
+        Title.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        Title.setText("HazMat Inventory Menu");
 
         itemName.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
         itemName.setText("name");
@@ -36,7 +37,7 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         saveItem.setText("Save");
         saveItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveItemActionPerformed(evt);
+                saveItemActionPerformed(evt, inventory);
             }
         });
 
@@ -62,8 +63,8 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         quantityInStock.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
         quantityInStock.setText("Quantity in stock");
 
-        backButtontton1.setText("Back");
-        backButtontton1.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButton1ActionPerformed(evt);
             }
@@ -83,7 +84,7 @@ public class HazMatInputGUI extends javax.swing.JFrame {
                             .addComponent(ShelfLocation)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(49, Short.MAX_VALUE)
-                        .addComponent(TItle, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(StorageArea, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -93,7 +94,7 @@ public class HazMatInputGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(discardItem)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(backButtontton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(HazMatCat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(53, 53, 53))
         );
@@ -101,7 +102,7 @@ public class HazMatInputGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addComponent(TItle, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(itemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -118,7 +119,7 @@ public class HazMatInputGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveItem)
                     .addComponent(discardItem)
-                    .addComponent(backButtontton1))
+                    .addComponent(backButton))
                 .addContainerGap())
         );
 
@@ -140,16 +141,18 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
-    private void saveItemActionPerformed(java.awt.event.ActionEvent evt) {
+    private void saveItemActionPerformed(ActionEvent evt, HazMatInventory inventory) {
         System.out.println("input save button pushed");
-//        HazMatInventory.HazMatItem temp1 = new HazMatInventory.HazMatItem(
-//                "test", "1",
-//                HazMatInventory.HazMatItem.HazMatCategory.FLAMMABLE,
-//                HazMatInventory.HazMatItem.StorageArea.FLAMMABLELOCKER,"top",10);
-//        HazMatInventory temp = new HazMatInventory();
-//        test.addHazMatItemToInventory(temp1);
-//        System.out.println(temp1.toString());
-//
+        HazMatInventory.HazMatItem temp;
+        temp = new HazMatInventory.HazMatItem(this.getItemName(),
+                this.getItemStockNum(),
+                this.getHazMatCat(),
+                this.getStorageArea(),
+                this.getShelfLocation(),
+                this.getQuantityInStock());
+
+        inventory.addHazMatItemToInventory(temp);
+        this.dispose();
     }
 
     private void backButton1ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +161,7 @@ public class HazMatInputGUI extends javax.swing.JFrame {
 //        this.dispose();
     }
 
-    public static void callmyGui(HazMatInventory.HazMatItem gain){
+    public static void callmyGui(HazMatInventory inventory){
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -174,28 +177,41 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HazMatInputGUI(gain).setVisible(true);
+                new HazMatInputGUI(inventory).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Title;
     private javax.swing.JComboBox<String> HazMatCat;
     private javax.swing.JTextField ShelfLocation;
     private javax.swing.JComboBox<String> StorageArea;
-    private javax.swing.JLabel TItle;
-    private javax.swing.JButton backButtontton1;
-    private javax.swing.JButton discardItem;
     private javax.swing.JTextField itemName;
     private javax.swing.JTextField itemStockNum;
     private javax.swing.JTextField quantityInStock;
+    private javax.swing.JButton discardItem;
     private javax.swing.JButton saveItem;
+    private javax.swing.JButton backButton;
     // End of variables declaration//GEN-END:variables
 
-    public JTextField getItemName() {
-        return itemName;
+    public String getItemName() {
+        return itemName.getText();
     }
-    public JTextField getShelfLocation() {
-        return ShelfLocation;
+    public String getShelfLocation() {
+        return ShelfLocation.getText();
+    }
+    public String getHazMatCat() {
+        return (String) HazMatCat.getSelectedItem();
+    }
+    public String getStorageArea() {
+        return (String) StorageArea.getSelectedItem();
+    }
+    public String getItemStockNum() {
+        return itemStockNum.getText();
+    }
+    public int getQuantityInStock() {
+//        System.out.printf(" return int: %d\n",Integer.parseInt(quantityInStock.getText()));
+        return 5;
     }
 }

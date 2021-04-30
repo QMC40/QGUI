@@ -12,13 +12,16 @@ public class InventoryController {
 
     private HazMatInventory inventory;
     private InventoryGUI GUI;
+    private HazMatInputGUI itemGUI;
 
     class addItemListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent a) {
 
             try {
-                inventory.addHazMatItemToInventory();
+                itemGUI = new HazMatInputGUI(inventory);
+                GUI.setVisible(false);
+                itemGUI.setVisible(true);
             } catch (Exception e) {
                 System.out.println("something wrong in addItemActionListener");
             }

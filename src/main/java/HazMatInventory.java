@@ -48,10 +48,7 @@ public class HazMatInventory {
         HazMatStock.get(HazMatStock.indexOf(supply)).quantityInStock += quantity;
     }
 
-    public void addHazMatItemToInventory() {
-        System.out.print("got this far\n");
-        HazMatItem gain = new HazMatItem();
-        new HazMatInputGUI(gain).setVisible(true);
+    public void addHazMatItemToInventory(HazMatItem gain) {
         HazMatStock.add(gain);
         System.out.println(gain.toString());
     }
@@ -79,16 +76,16 @@ public class HazMatInventory {
 
         String name;
         String stockNumber;
-        HazMatCategory hazMatCategory;
-        StorageArea storageArea;
+        String hazMatCategory;
+        String storageArea;
         String shelfLocation;
         int quantityInStock;
 
         public HazMatItem() {
-            this("","",HazMatCategory.FLAMMABLE,StorageArea.COMMON,"",0);
+            this("","","","","",0);
         }
 
-        public HazMatItem(String name, String stockNumber, HazMatCategory hazMatCategory, StorageArea storageArea,
+        public HazMatItem(String name, String stockNumber, String hazMatCategory, String storageArea,
                           String shelfLocation, int stock) {
             this.name = name;
             this.stockNumber = stockNumber;
@@ -106,9 +103,9 @@ public class HazMatInventory {
             System.out.print("Stock Number: ");
             String stockNumber = scanner.nextLine();
             System.out.print("HazMat Category: ");
-            HazMatCategory hazMatCategory = HazMatCategory.FLAMMABLE;
+            String hazMatCategory = "FLAMMABLE";
             System.out.print("\nStorage Area: ");
-            StorageArea storageArea = StorageArea.COMMON;
+            String storageArea = "COMMON";
             System.out.print("\nShelf Location: ");
             String shelfLocation = scanner.nextLine();
             //add invalid input exception test
@@ -142,19 +139,19 @@ public class HazMatInventory {
             this.stockNumber = stockNumber;
         }
 
-        public HazMatCategory getHazMatCategory() {
+        public String getHazMatCategory() {
             return hazMatCategory;
         }
 
-        public void setHazMatCategory(HazMatCategory hazMatCategory) {
+        public void setHazMatCategory(String hazMatCategory) {
             this.hazMatCategory = hazMatCategory;
         }
 
-        public StorageArea getStorageArea() {
+        public String getStorageArea() {
             return storageArea;
         }
 
-        public void setStorageArea(StorageArea storageArea) {
+        public void setStorageArea(String storageArea) {
             this.storageArea = storageArea;
         }
 
@@ -175,12 +172,28 @@ public class HazMatInventory {
         }
 
         public enum HazMatCategory {
-            TOXIC, FLAMMABLE, EXPLOSIVE, OXIDIZING, CORROSIVE, COMPRESSEDGAS,
-            REACTIVE, SPECIAL, HEALTHHAZARD, ORGANICPEROXIDES
+            TOXIC("Toxic"), FLAMMABLE("Flammable"), EXPLOSIVE("Explosive"), OXIDIZING("Oxidizing"),
+            CORROSIVE("Corrosive"),COMPRESSEDGAS("Compressed Gas"),REACTIVE("Reactive"), SPECIAL("Special"),
+            HEALTHHAZARD("Health Hazard"), ORGANICPEROXIDES("Organic Peroxides");
+            private final String display;
+            private HazMatCategory(String s) {
+                display = s;
+            }
+            public String toString() {
+                return display;
+            }
         }
 
         public enum StorageArea {
-            COMMON, FLAMMABLELOCKER, GASCYLINDERENCLOSURE, REACTIVELOCKER, SPECIALLOCKER
+            COMMON("Common Area"), FLAMMABLELOCKER("Flam Locker"), GASCYLINDERENCLOSURE("Cylinder Enclosure"),
+            REACTIVELOCKER("Reactive Locker"), SPECIALLOCKER("Special Locker");
+            private final String display;
+            private StorageArea(String s) {
+                display = s;
+            }
+            public String toString() {
+                return display;
+            }
         }
 
     }
