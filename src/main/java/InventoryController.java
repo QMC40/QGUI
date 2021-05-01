@@ -9,6 +9,7 @@ public class InventoryController {
 
         invenGUI.addItemActionPerformedListener(new addItemListener());
         invenGUI.addInventoryActionPerformedListener(new addInventoryListener());
+        invenGUI.BackActionPerformed(new backListener());
 
     }
 
@@ -23,10 +24,10 @@ public class InventoryController {
 
             try {
                 itemGUI = new HazMatInputGUI(inventory);
-                invenGUI.setVisible(false);
+                invenGUI.dispose();
                 itemGUI.setVisible(true);
                 itemGUI.saveItemActionPerformedListener(new saveItemListener());
-                itemGUI.backActionPerformedListener(new backListener());
+//                itemGUI.inputBackActionPerformedListener(new inputBackListener());
             } catch (Exception e) {
                 System.out.println("something wrong in addItemActionListener");
             }
@@ -57,12 +58,26 @@ public class InventoryController {
             }
         }
     }
+//    class inputBackListener implements ActionListener {
+//        @Override
+//        public void actionPerformed(ActionEvent a) {
+////
+////            try {
+//////                invenGUI.setVisible(true);
+////            } catch (Exception e) {
+////                System.out.println("something wrong in addItemActionListener");
+////            }
+//        }
+//    }
     class backListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent a) {
 
             try {
-                invenGUI.setVisible(true);
+                System.out.println("chickfoot\n");
+                FrontGUI frontGUI = new FrontGUI(inventory);
+                frontGUI.setVisible(true);
+                invenGUI.dispose();
             } catch (Exception e) {
                 System.out.println("something wrong in addItemActionListener");
             }

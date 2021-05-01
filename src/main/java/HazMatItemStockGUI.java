@@ -4,8 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class HazMatItemStockGUI extends javax.swing.JFrame {
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    HazMatInventory inventory;
     private javax.swing.JLabel Title;
     private javax.swing.JTextField itemName;
     private javax.swing.JTextField Quantity;
@@ -15,6 +14,7 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
     private javax.swing.JButton back;
 
     public HazMatItemStockGUI(HazMatInventory subj) {
+        inventory = subj;
         initComponents();
     }
 
@@ -184,9 +184,9 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
         System.out.println("testing Help button click");
     }
 
-    private void BackActionPerformed(ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        System.out.println("testing back button click");
-        new frontGUI().setVisible(true);
+    private void BackActionPerformed(ActionEvent evt) {
+        System.out.println("testing  HMI Stock back button click");
+        new InventoryGUI(inventory).setVisible(true);
         this.dispose();
     }
 

@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 public class InventoryGUI extends javax.swing.JFrame {
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    HazMatInventory inventory;
     private javax.swing.JButton addInventory;
     private javax.swing.JButton addItem;
     private javax.swing.JButton back;
@@ -16,6 +16,7 @@ public class InventoryGUI extends javax.swing.JFrame {
     private javax.swing.JLabel Title;
 
     public InventoryGUI(HazMatInventory subj) {
+        this.inventory = subj;
         initComponents();
     }
 
@@ -60,11 +61,11 @@ public class InventoryGUI extends javax.swing.JFrame {
         addItem.setBackground(new java.awt.Color(153, 255, 102));
         addItem.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
         addItem.setText("Add Item");
-        addItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddItemActionPerformed(evt);
-            }
-        });
+//        addItem.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                AddItemActionPerformed(evt, subj);
+//            }
+//        });
 
         removeItem.setBackground(new java.awt.Color(204, 255, 204));
         removeItem.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
@@ -166,11 +167,10 @@ public class InventoryGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AddItemActionPerformed(ActionEvent evt) {
+    private void AddItemActionPerformed(ActionEvent evt, HazMatInventory subj) {
 
         System.out.println("testing add item button click");
-//            HazMatInputGUI input = new HazMatInputGUI();
-//            new HazMatInputGUI().setVisible(true);
+//            new HazMatInputGUI(subj).setVisible(true);
 //            this.dispose();
     }
 
@@ -193,9 +193,10 @@ public class InventoryGUI extends javax.swing.JFrame {
         System.out.println("testing Help button click");
     }
 
-    private void BackActionPerformed(ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+    private void BackActionPerformed(ActionEvent evt) {
         System.out.println("testing back button click");
-        dispose();
+        new FrontGUI(inventory).setVisible(true);
+        this.dispose();
     }
 
     void addItemActionPerformedListener(ActionListener mal) {
@@ -204,6 +205,10 @@ public class InventoryGUI extends javax.swing.JFrame {
 
     void addInventoryActionPerformedListener(ActionListener mal) {
         addInventory.addActionListener(mal);
+    }
+
+    void BackActionPerformed(ActionListener mal) {
+        back.addActionListener(mal);
     }
 
 }

@@ -114,7 +114,7 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
+                backButtonActionPerformed(evt, inventory);
             }
         });
 
@@ -229,8 +229,10 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         this.dispose();
     }
 
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("testing back button click");
+    private void backButtonActionPerformed(ActionEvent evt, HazMatInventory inventory) {
+        System.out.println("testing HM inputGUI back button click");
+        new InventoryGUI(inventory).setVisible(true);
+        this.dispose();
     }
 
     private void discardItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardItemActionPerformed
@@ -241,17 +243,6 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         StorageArea.setSelectedItem("Common Area");
         quantityInStock.setText("");
     }
-
-//    private void HazMatCatActionPerformed(java.awt.event.ActionEvent evt) {
-//        // TODO add your handling code here:
-//    }
-
-//    private void itemNameActionPerformed(java.awt.event.ActionEvent evt) {
-//        // TODO add your handling code here:
-//    }
-
-
-    // End of variables declaration//GEN-END:variables
 
     public String getItemName() {
         return itemName.getText();
@@ -286,7 +277,7 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         saveItem.addActionListener(mal);
     }
 
-    void backActionPerformedListener(ActionListener mal) {
-        backButton.addActionListener(mal);
-    }
+//    void inputBackActionPerformedListener(ActionListener mal) {
+//        backButton.addActionListener(mal);
+//    }
 }

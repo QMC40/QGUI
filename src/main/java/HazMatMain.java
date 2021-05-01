@@ -7,44 +7,39 @@ Recommend cloning it to desktop then open as new project in NETBEANS
   INCLUDE AT YOUR OWN PERIL
 */
 
-import javax.swing.*;
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.util.*;
-import java.util.List;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class HazMatMain extends javax.swing.JFrame {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         System.out.println("main page is running..");
 
-        //instantiate inventory object
+        // inventory object with inventory arraylist
         HazMatInventory inventory = new HazMatInventory();
-        InventoryGUI inventoryGUI = new InventoryGUI(inventory);
-        InventoryController inventoryController = new InventoryController(inventory,inventoryGUI);
-        inventoryGUI.setVisible(true);
 
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frontGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        FrontGUI frontGUI = new FrontGUI(inventory);
+        frontGUI.setVisible(true);
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frontGUI().setVisible(true);
-            }
-        });
-    }
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(FrontGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new FrontGUI(inventory).setVisible(true);
+//            }
+//        });
+//    }
 
 //    private void initComponents() {
 //
@@ -139,4 +134,21 @@ public class HazMatMain extends javax.swing.JFrame {
 //        );
 //        pack();
 //    }
+    }
+    class hazMatButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent a) {
+
+            try {
+//                InventoryGUI invenGUI = new InventoryGUI();
+//                invenGUI.setVisible(true);
+//                InventoryController iController = new InventoryController(inventory,invenGUI);
+//                dispose();
+//                stockGUI.saveItemActionPerformedListener(new saveItemListener());
+//                stockGUI.backActionPerformedListener(new backListener());
+            } catch (Exception e) {
+                System.out.println("something wrong in addItemActionListener");
+            }
+        }
+    }
 }
