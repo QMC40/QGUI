@@ -37,6 +37,7 @@ public class FileOperations
 
     public static List<MSDSObject> readINTOListMSDSFromCSV(String fileName)
     {
+
         List<MSDSObject> msdsAL = new ArrayList<>();
         Path pathToFile = Paths.get(fileName);
 
@@ -66,5 +67,54 @@ public class FileOperations
     private static MSDSObject createMSDSObject(String[] s)
     {
         return new MSDSObject(s[0],s[1],s[2],s[3],s[4],s[5],s[6],s[7],s[8],s[9],s[10],s[11],s[12],s[13],s[14],s[15]);
+    }
+
+    //HazMat Inventory Items
+    public static List<HazMatInventory.HazMatItem> readINTOListHazMatInvItemsFromCSV(String fileName)
+    {
+        List<HazMatInventory.HazMatItem> listHazMatInv = new ArrayList<>();
+        Path pathToFile = Paths.get(fileName);
+
+        try (BufferedReader br = Files.newBufferedReader(pathToFile,
+                StandardCharsets.US_ASCII)) {
+
+            String line = br.readLine();
+
+            while (line != null) {
+                String[] attributes = line.split(",");
+
+                HazMatInventory.HazMatItem hazMatInventory = createHazMatInvItem(attributes);
+
+                listHazMatInv.add(hazMatInventory);
+
+                line = br.readLine();
+            }
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+
+        return listHazMatInv;
+    }
+
+    public static void writeFileToHazMatInvItemsFromCSV(String fileName, List<HazMatInventory.HazMatItem> listHazMatInv) throws IOException {
+        FileWriter fw = new FileWriter(fileName,false); // Makes sure to Overwrite File
+        for(int i = 0; i < listHazMatInv.size(); i++)
+        {
+            fw.append(listHazMatInv.get(i).getName()+",");
+            fw.append(listHazMatInv.get(i).getStockNumber()+",");
+            fw.append(listHazMatInv.get(i).getShelfLocation()+",");
+            fw.append(listHazMatInv.get(i).getHazMatCategory()+",");
+            fw.append(listHazMatInv.get(i).getStorageArea()+",");
+            fw.append(listHazMatInv.get(i).getQuantityInStock()+"\n");
+        }
+        fw.flush();
+        fw.close();
+    }
+
+    private static HazMatInventory.HazMatItem createHazMatInvItem(String[] s)
+    {
+        return new HazMatInventory.HazMatItem(s[0], s[1], s[2], s[3],
+                s[4], Integer.parseInt(s[5]));
     }
 }
