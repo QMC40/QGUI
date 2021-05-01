@@ -41,6 +41,7 @@ public class DisplayMSDSTable
         table.getColumnModel().getColumn(2).setMinWidth(widthMin);
         table.getColumnModel().getColumn(3).setMinWidth(widthMin);
         table.getColumnModel().getColumn(4).setMinWidth(widthMin);
+        table.getColumnModel().getColumn(5).setMinWidth(widthMin);
         table.getColumnModel().getColumn(6).setMinWidth(widthMin);
         table.getColumnModel().getColumn(7).setMinWidth(widthMin);
         table.getColumnModel().getColumn(8).setMinWidth(widthMin);
