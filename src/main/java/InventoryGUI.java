@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 public class InventoryGUI extends javax.swing.JFrame {
@@ -16,11 +15,13 @@ public class InventoryGUI extends javax.swing.JFrame {
     private javax.swing.JButton removeItem;
     private javax.swing.JLabel Title;
 
+    // constructor for inventory GUI with passed inventory object
     public InventoryGUI(HazMatInventory subj) {
         this.inventory = subj;
-        initComponents();
+        initComponents(subj);
     }
 
+    // create inventory GUI page in new runnable
     public static void callmyGui(HazMatInventory subj) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -43,7 +44,7 @@ public class InventoryGUI extends javax.swing.JFrame {
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents(HazMatInventory subj) {
 
         Title = new javax.swing.JLabel();
         addItem = new javax.swing.JButton();
@@ -62,11 +63,11 @@ public class InventoryGUI extends javax.swing.JFrame {
         addItem.setBackground(new java.awt.Color(153, 255, 102));
         addItem.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
         addItem.setText("Add Item");
-//        addItem.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                AddItemActionPerformed(evt, subj);
-//            }
-//        });
+        addItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddItemActionPerformed(evt, subj);
+            }
+        });
 
         removeItem.setBackground(new java.awt.Color(204, 255, 204));
         removeItem.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
@@ -170,10 +171,10 @@ public class InventoryGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddItemActionPerformed(ActionEvent evt, HazMatInventory subj) {
-
         System.out.println("testing add item button click");
-//            new HazMatInputGUI(subj).setVisible(true);
-//            this.dispose();
+        dispose();
+        new HazMatInputGUI(inventory).setVisible(true);
+
     }
 
     private void IssueInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IssueInventoryActionPerformed
@@ -189,6 +190,7 @@ public class InventoryGUI extends javax.swing.JFrame {
     private void AddInventoryActionPerformed(ActionEvent evt) {
         System.out.println("testing add inventory button click");
         dispose();
+        new HazMatItemStockGUI(inventory).setVisible(true);
     }
 
     private void HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpActionPerformed
@@ -197,20 +199,22 @@ public class InventoryGUI extends javax.swing.JFrame {
 
     private void BackActionPerformed(ActionEvent evt) {
         System.out.println("testing back button click");
+
+        // call new front GUI instance up, make visable and dispose of inventory GUI
         new FrontGUI(inventory).setVisible(true);
         this.dispose();
     }
 
-    void addItemActionPerformedListener(ActionListener mal) {
-        addItem.addActionListener(mal);
-    }
+//    void addItemActionPerformedListener(ActionListener mal) {
+//        addItem.addActionListener(mal);
+//    }
 
-    void addInventoryActionPerformedListener(ActionListener mal) {
-        addInventory.addActionListener(mal);
-    }
+//    void addInventoryActionPerformedListener(ActionListener mal) {
+//        addInventory.addActionListener(mal);
+//    }
 
-    void BackActionPerformed(ActionListener mal) {
-        back.addActionListener(mal);
-    }
+//    void BackActionPerformed(ActionListener mal) {
+//        back.addActionListener(mal);
+//    }
 
 }

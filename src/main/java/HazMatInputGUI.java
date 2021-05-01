@@ -218,17 +218,23 @@ public class HazMatInputGUI extends javax.swing.JFrame {
 
     private void saveItemActionPerformed(ActionEvent evt, HazMatInventory inventory) {
         System.out.println("input save button pushed");
-        HazMatInventory.HazMatItem temp;
-        temp = new HazMatInventory.HazMatItem(this.getItemName(),
-                this.getItemStockNum(),
-                this.getHazMatCat(),
-                this.getStorageArea(),
-                this.getShelfLocation(),
-                this.getQuantityInStock());
+        if(!getItemName().isEmpty() && !getItemStockNum().isEmpty() && !getShelfLocation().isEmpty()) {
+            HazMatInventory.HazMatItem temp;
+            temp = new HazMatInventory.HazMatItem(
+                    this.getItemName(),
+                    this.getItemStockNum(),
+                    this.getHazMatCat(),
+                    this.getStorageArea(),
+                    this.getShelfLocation(),
+                    this.getQuantityInStock(), false);
 
-        inventory.addHazMatItemToInventory(temp);
-        System.out.printf("Current inventory size: %d\n",inventory.getHazMatStock().size());
-        this.dispose();
+            inventory.addHazMatItemToInventory(temp);
+            new InventoryGUI(inventory).setVisible(true);
+            System.out.printf("Current inventory size: %d\n", inventory.getHazMatStock().size());
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null,"Item description is incomplete");
+        }
     }
 
     private void backButtonActionPerformed(ActionEvent evt, HazMatInventory inventory) {
@@ -275,12 +281,4 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         }
 
     }
-
-    void saveItemActionPerformedListener(ActionListener mal) {
-        saveItem.addActionListener(mal);
-    }
-
-//    void inputBackActionPerformedListener(ActionListener mal) {
-//        backButton.addActionListener(mal);
-//    }
 }

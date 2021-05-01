@@ -189,13 +189,4 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
         new InventoryGUI(inventory).setVisible(true);
         this.dispose();
     }
-
-//    void addItemActionPerformedListener(ActionListener mal) {
-//        addItem.addActionListener(mal);
-//    }
-//
-//    void addIventoryActionPerformedListener(ActionListener mal) {
-//        addInventory.addActionListener(mal);
-//    }
-
 }

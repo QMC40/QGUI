@@ -96,7 +96,8 @@ public class FileOperations
             fw.append(hazMatItem.getShelfLocation() + ",");
             fw.append(hazMatItem.getHazMatCategory() + ",");
             fw.append(hazMatItem.getStorageArea() + ",");
-            fw.append(hazMatItem.getQuantityInStock() + "\n");
+            fw.append(hazMatItem.getQuantityInStock() + ",");
+            fw.append(hazMatItem.isWaste() + "\n");
         }
         fw.flush();
         fw.close();
