@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class InventoryGUI extends javax.swing.JFrame {
 
@@ -94,8 +95,9 @@ public class InventoryGUI extends javax.swing.JFrame {
             }
         });
 
+        File file = new File("msdsimage.jpg");
         picture.setText("jLabel2");
-
+        picture.setIcon(new javax.swing.ImageIcon(file.getAbsolutePath()));
         help.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
         help.setText("Help");
         help.addActionListener(new java.awt.event.ActionListener() {

@@ -9,6 +9,9 @@ Recommend cloning it to desktop then open as new project in NETBEANS
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
 
 public class HazMatMain extends javax.swing.JFrame {
 
@@ -18,6 +21,16 @@ public class HazMatMain extends javax.swing.JFrame {
 
         // inventory object with inventory arraylist
         HazMatInventory inventory = new HazMatInventory();
+
+        System.out.printf("arraylist size before: %d\n",inventory.getHazMatStock().size());
+        File file = new File("HazMatSample.csv");
+        FileOperations.readINTOListHazMatInvItemsFromCSV(file.getAbsolutePath(),inventory.getHazMatStock());
+        System.out.printf("arraylist size after: %d",inventory.getHazMatStock().size());
+        try {
+            FileOperations.writeFileToHazMatInvItemsFromCSV("test.csv",inventory.getHazMatStock());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         FrontGUI frontGUI = new FrontGUI(inventory);
         frontGUI.setVisible(true);
@@ -135,20 +148,20 @@ public class HazMatMain extends javax.swing.JFrame {
 //        pack();
 //    }
     }
-    class hazMatButtonListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent a) {
-
-            try {
-//                InventoryGUI invenGUI = new InventoryGUI();
-//                invenGUI.setVisible(true);
-//                InventoryController iController = new InventoryController(inventory,invenGUI);
-//                dispose();
-//                stockGUI.saveItemActionPerformedListener(new saveItemListener());
-//                stockGUI.backActionPerformedListener(new backListener());
-            } catch (Exception e) {
-                System.out.println("something wrong in addItemActionListener");
-            }
-        }
-    }
+//    class hazMatButtonListener implements ActionListener {
+//        @Override
+//        public void actionPerformed(ActionEvent a) {
+//
+//            try {
+////                InventoryGUI invenGUI = new InventoryGUI();
+////                invenGUI.setVisible(true);
+////                InventoryController iController = new InventoryController(inventory,invenGUI);
+////                dispose();
+////                stockGUI.saveItemActionPerformedListener(new saveItemListener());
+////                stockGUI.backActionPerformedListener(new backListener());
+//            } catch (Exception e) {
+//                System.out.println("something wrong in addItemActionListener");
+//            }
+//        }
+//    }
 }

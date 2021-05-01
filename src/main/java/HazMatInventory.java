@@ -3,12 +3,12 @@ import java.util.Scanner;
 
 public class HazMatInventory {
 
-    //NOT THREAD SAFE / NOT SELF-SYNCHRONIZING!!!
-    private ArrayList<HazMatItem> HazMatStock = new ArrayList<>();
-
-    public ArrayList<HazMatItem> getArrayList() {
+    public ArrayList<HazMatItem> getHazMatStock() {
         return HazMatStock;
     }
+
+    //NOT THREAD SAFE / NOT SELF-SYNCHRONIZING!!!
+    private ArrayList<HazMatItem> HazMatStock = new ArrayList<>();
 
     //another possible interface opportunity?
     //public interface HazMatInventoryAccess {}
@@ -17,7 +17,7 @@ public class HazMatInventory {
     public HazMatInventory() {
     }
 
-//    //won't work, need to find name inside DT
+    //won't work, need to find name inside DT
 //    public int indexOfItem(String name) {
 //        return HazMatStock.indexOf(name);
 //    }
@@ -76,7 +76,7 @@ public class HazMatInventory {
     }
 
     //Item of Haz Mat to be inventoried
-    public static class HazMatItem {
+    protected static class HazMatItem {
 
         String name;
         String stockNumber;
@@ -97,6 +97,11 @@ public class HazMatInventory {
             this.storageArea = storageArea;
             this.shelfLocation = shelfLocation;
             this.quantityInStock = stock;
+        }
+
+        public HazMatItem(String[] attributes) {
+            this(attributes[0],attributes[1],attributes[2],attributes[3],attributes[4],
+                    Integer.parseInt(attributes[5]));
         }
 
         public static HazMatItem createHazMatItem() {
@@ -180,7 +185,7 @@ public class HazMatInventory {
             CORROSIVE("Corrosive"),COMPRESSEDGAS("Compressed Gas"),REACTIVE("Reactive"), SPECIAL("Special"),
             HEALTHHAZARD("Health Hazard"), ORGANICPEROXIDES("Organic Peroxides");
             private final String display;
-            private HazMatCategory(String s) {
+            HazMatCategory(String s) {
                 display = s;
             }
             public String toString() {
@@ -192,7 +197,7 @@ public class HazMatInventory {
             COMMON("Common Area"), FLAMMABLELOCKER("Flam Locker"), GASCYLINDERENCLOSURE("Cylinder Enclosure"),
             REACTIVELOCKER("Reactive Locker"), SPECIALLOCKER("Special Locker");
             private final String display;
-            private StorageArea(String s) {
+            StorageArea(String s) {
                 display = s;
             }
             public String toString() {

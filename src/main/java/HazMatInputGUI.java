@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLOutput;
 
 public class HazMatInputGUI extends javax.swing.JFrame {
 
@@ -231,6 +232,7 @@ public class HazMatInputGUI extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(ActionEvent evt, HazMatInventory inventory) {
         System.out.println("testing HM inputGUI back button click");
+        System.out.println("not chickenfoot");
         new InventoryGUI(inventory).setVisible(true);
         this.dispose();
     }
