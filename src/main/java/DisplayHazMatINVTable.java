@@ -1,9 +1,10 @@
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DisplayHazMatINVTable
 {
-    public DisplayHazMatINVTable(List<HazMatInventory.HazMatItem> hazMatItemList)
+    public DisplayHazMatINVTable(ArrayList<HazMatInventory.HazMatItem> hazMatItemList)
     {
         Object[][] rows = new Object[hazMatItemList.size()][7];
         Object[] cols = {"Name", "Stock Number", "Location",

@@ -227,6 +227,7 @@ public class HazMatInputGUI extends javax.swing.JFrame {
                 this.getQuantityInStock());
 
         inventory.addHazMatItemToInventory(temp);
+        System.out.printf("Current inventory size: %d\n",inventory.getHazMatStock().size());
         this.dispose();
     }
 
