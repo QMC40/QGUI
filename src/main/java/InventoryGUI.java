@@ -74,7 +74,7 @@ public class InventoryGUI extends javax.swing.JFrame {
         removeItem.setText("Remove Item");
         removeItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RemoveItemActionPerformed(evt);
+                RemoveItemActionPerformed(evt, subj);
             }
         });
 
@@ -181,9 +181,11 @@ public class InventoryGUI extends javax.swing.JFrame {
         System.out.println("testing remove item button click");
     }
 
-    private void RemoveItemActionPerformed(java.awt.event.ActionEvent evt) {
+    private void RemoveItemActionPerformed(ActionEvent evt, HazMatInventory subj) {
+        System.out.println("testing remove stock button click");
 
-        System.out.println("testing add stock button click");
+        new HazMatRemoveGUI(subj).setVisible(true);
+        this.dispose();
 
     }
 

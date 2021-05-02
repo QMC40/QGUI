@@ -33,7 +33,9 @@ public class HazMatMain extends javax.swing.JFrame {
             e.printStackTrace();
         }
 
-        //load front GUI
+        System.out.println(inventory);
+
+    //load front GUI
         FrontGUI frontGUI = new FrontGUI(inventory);
         frontGUI.setVisible(true);
 

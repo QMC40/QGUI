@@ -1,18 +1,27 @@
+import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class HazMatInventory {
 
-    public ArrayList<HazMatItem> getHazMatStock() {
-        return HazMatStock;
-    }
+    /**
+     * ArrayList of items in the inventory
+     */
+    private ArrayList<HazMatItem> HazMatStock = new ArrayList<>();
 
     //NOT THREAD SAFE / NOT SELF-SYNCHRONIZING!!!
     // another possible interface opportunity?
     // public interface HazMatInventoryAccess {}
-    private ArrayList<HazMatItem> HazMatStock = new ArrayList<>();
 
+    /**
+     * constructor
+     */
     public HazMatInventory() {
+    }
+
+    public ArrayList<HazMatItem> getHazMatStock() {
+        return HazMatStock;
     }
 
     public boolean isInInventory(HazMatItem subj) {
@@ -45,26 +54,63 @@ public class HazMatInventory {
 
     public void removeHazMatItemFromInventory(HazMatItem loss) {
         HazMatStock.remove(loss);
+        String message = String.format("%s Removed",loss.getName());
+        JOptionPane.showMessageDialog(null, message);
+        System.out.printf("Current inventory size: %d\n", getHazMatStock().size());
     }
 
-    public HazMatItem finder(String removeMe) {
-        HazMatItem subj = null;
-        for (HazMatItem e : HazMatStock) {
-            if (e.getName().equals(removeMe)) {
-                subj = e;
-            } else {
-                System.out.println(removeMe + " does not exist in the inventory");
+//    public void removeHazMatItemByString(String subj) { // for remove gui
+//
+//        for (HazMatItem e : HazMatStock) {
+//            if (e.getName().equals(subj)){
+//                System.out.println("Removed " + e.getName() + " from inventory");
+//                HazMatStock.remove(e);
+//                return;
+//            } else {
+//                continue;
+//            }
+//        }
+//        System.out.println(subj + " does not exist in the inventory");
+//    } // remover code for HazMatInventory
+
+    public HazMatItem nameFinder(String findMe) {
+        if (findMe != null) {
+            try {
+                for (HazMatItem e : HazMatStock) {
+                    if (e.getName().equals(findMe)) {
+                        return e;
+                    }
+                }
+            } catch (NullPointerException e) {
+                JOptionPane.showMessageDialog(null, "HazMatStock is empty");
+                return null;
             }
         }
-        return subj;
-    }
+        return null;
+    } // finder for HazMatInventory names
+
+    public HazMatItem stockNumberFinder(String findMe) {
+        if (findMe != null) {
+            try {
+                for (HazMatItem e : HazMatStock) {
+                    if (e.getStockNumber().equals(findMe)) {
+                        return e;
+                    }
+                }
+            } catch (NullPointerException e) {
+                JOptionPane.showMessageDialog(null, "HazMatStock is empty");
+                return null;
+            }
+        }
+        return null;
+    } // finder for HazMatInventory Stock numbers
 
     //testing method to see what's in the inventory
-    public String ToString() {
+    public String toString() {
         StringBuilder buffer = new StringBuilder();
         for (HazMatItem subj : HazMatStock) {
             System.out.println(subj.toString());
-            buffer.append(subj.toString());
+            buffer.append(subj).append("\n");
         }
         return buffer.toString();
     }
@@ -81,7 +127,7 @@ public class HazMatInventory {
         boolean waste;
 
         public HazMatItem() {
-            this("","","","","",0,false);
+            this("", "", "", "", "", 0, false);
         }
 
         public HazMatItem(String name, String stockNumber, String hazMatCategory, String storageArea,
@@ -96,8 +142,8 @@ public class HazMatInventory {
         }
 
         public HazMatItem(String[] attributes) {
-            this(attributes[0],attributes[1],attributes[2],attributes[3],attributes[4],
-                    Integer.parseInt(attributes[5]),Boolean.parseBoolean(attributes[6]));
+            this(attributes[0], attributes[1], attributes[2], attributes[3], attributes[4],
+                    Integer.parseInt(attributes[5]), Boolean.parseBoolean(attributes[6]));
         }
 
         public static HazMatItem createHazMatItem() {
@@ -117,7 +163,7 @@ public class HazMatInventory {
             System.out.print("Quantity in stock: ");
             int stock = scanner.nextInt();
             return new HazMatItem(name, stockNumber, hazMatCategory, storageArea,
-                    shelfLocation, stock,false);
+                    shelfLocation, stock, false);
         }
 
         public String toString() {
@@ -126,6 +172,15 @@ public class HazMatInventory {
                             "Shelf location: %s%nQuantity in stock: %d", getName(), getStockNumber(), getHazMatCategory(),
                     getStorageArea(), getShelfLocation(), getQuantityInStock());
         }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof HazMatItem)) return false;
+            HazMatItem that = (HazMatItem) o;
+            return getQuantityInStock() == that.getQuantityInStock() && isWaste() == that.isWaste() && getName().equals(that.getName()) && getStockNumber().equals(that.getStockNumber()) && getHazMatCategory().equals(that.getHazMatCategory()) && getStorageArea().equals(that.getStorageArea()) && getShelfLocation().equals(that.getShelfLocation());
+        }
+
 
         //setters and getters
         public String getName() {

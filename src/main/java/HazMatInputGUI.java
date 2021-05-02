@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.SQLOutput;
 
 public class HazMatInputGUI extends javax.swing.JFrame {
 
@@ -23,6 +21,7 @@ public class HazMatInputGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    // End of variables declaration//GEN-END:variables
 
     public HazMatInputGUI(HazMatInventory inventory) {
         initComponents(inventory);
@@ -239,7 +238,6 @@ public class HazMatInputGUI extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(ActionEvent evt, HazMatInventory inventory) {
         System.out.println("testing HM inputGUI back button click");
-        System.out.println("not chickenfoot");
         new InventoryGUI(inventory).setVisible(true);
         this.dispose();
     }

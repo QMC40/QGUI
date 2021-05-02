@@ -13,22 +13,22 @@ public class FileOperations
     public static void writeFileToCSVMSDS(String fileName, List<MSDSObject> listMSDS) throws IOException {
         FileWriter fw = new FileWriter(fileName,false); // Makes sure to Overwrite File
         for (MSDSObject listMSD : listMSDS) {
-            fw.append(listMSD.getS1_Identification() + ",");
-            fw.append(listMSD.getS2_Hazards_Identification() + ",");
-            fw.append(listMSD.getS3_Composition_Information_Ingredients() + ",");
-            fw.append(listMSD.getS4_First_Aid_Measures() + ",");
-            fw.append(listMSD.getS5_Fire_Fighting_Measures() + ",");
-            fw.append(listMSD.getS6_Accidental_Release_Measures() + ",");
-            fw.append(listMSD.getS7_Handling_and_Storage() + ",");
-            fw.append(listMSD.getS8_Exposure_Controls_Personal_Protection() + ",");
-            fw.append(listMSD.getS9_Physical_and_Chemical_Properties() + ",");
-            fw.append(listMSD.getS10_Stability_and_Reactivity() + ",");
-            fw.append(listMSD.getS11_Toxicological_Information() + ",");
-            fw.append(listMSD.getS12_Ecological_Information() + ",");
-            fw.append(listMSD.getS13_Disposal_Considerations() + ",");
-            fw.append(listMSD.getS14_Transport_Information() + ",");
-            fw.append(listMSD.getS15_Regulatory_Information() + ",");
-            fw.append(listMSD.getS16_Other_Information() + "\n");
+            fw.append(listMSD.getS1_Identification()).append(",");
+            fw.append(listMSD.getS2_Hazards_Identification()).append(",");
+            fw.append(listMSD.getS3_Composition_Information_Ingredients()).append(",");
+            fw.append(listMSD.getS4_First_Aid_Measures()).append(",");
+            fw.append(listMSD.getS5_Fire_Fighting_Measures()).append(",");
+            fw.append(listMSD.getS6_Accidental_Release_Measures()).append(",");
+            fw.append(listMSD.getS7_Handling_and_Storage()).append(",");
+            fw.append(listMSD.getS8_Exposure_Controls_Personal_Protection()).append(",");
+            fw.append(listMSD.getS9_Physical_and_Chemical_Properties()).append(",");
+            fw.append(listMSD.getS10_Stability_and_Reactivity()).append(",");
+            fw.append(listMSD.getS11_Toxicological_Information()).append(",");
+            fw.append(listMSD.getS12_Ecological_Information()).append(",");
+            fw.append(listMSD.getS13_Disposal_Considerations()).append(",");
+            fw.append(listMSD.getS14_Transport_Information()).append(",");
+            fw.append(listMSD.getS15_Regulatory_Information()).append(",");
+            fw.append(listMSD.getS16_Other_Information()).append("\n");
         }
         fw.flush();
         fw.close();
@@ -70,7 +70,6 @@ public class FileOperations
     public static void readINTOListHazMatInvItemsFromCSV(String fileName,
                                              ArrayList<HazMatInventory.HazMatItem> subj)
     {
-//        List<HazMatInventory.HazMatItem> listHazMatInv = new ArrayList<>();
         Path pathToFile = Paths.get(fileName);
 
         try (BufferedReader br = Files.newBufferedReader(pathToFile,
@@ -91,22 +90,16 @@ public class FileOperations
             throws IOException {
         FileWriter fw = new FileWriter(fileName,false); // Makes sure to Overwrite File
         for (HazMatInventory.HazMatItem hazMatItem : listHazMatInv) {
-            fw.append(hazMatItem.getName() + ",");
-            fw.append(hazMatItem.getStockNumber() + ",");
-            fw.append(hazMatItem.getShelfLocation() + ",");
-            fw.append(hazMatItem.getHazMatCategory() + ",");
-            fw.append(hazMatItem.getStorageArea() + ",");
-            fw.append(hazMatItem.getQuantityInStock() + ",");
-            fw.append(hazMatItem.isWaste() + "\n");
+            fw.append(hazMatItem.getName()).append(",");
+            fw.append(hazMatItem.getStockNumber()).append(",");
+            fw.append(hazMatItem.getShelfLocation()).append(",");
+            fw.append(hazMatItem.getHazMatCategory()).append(",");
+            fw.append(hazMatItem.getStorageArea()).append(",");
+            fw.append(String.valueOf(hazMatItem.getQuantityInStock())).append(",");
+            fw.append(String.valueOf(hazMatItem.isWaste())).append("\n");
         }
         fw.flush();
         fw.close();
     }
 
-    // we don't need this I made a constructor to take your attributes list, easier
-//    private static HazMatInventory.HazMatItem createHazMatInvItem(String[] s)
-//    {
-//        return new HazMatInventory.HazMatItem(s[0], s[1], s[2], s[3],
-//                s[4], Integer.parseInt(s[5]));
-//    }
 }
