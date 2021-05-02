@@ -27,13 +27,26 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
     private DefaultTableModel tblModel;
     private Object tData[] = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
     private File file;
+    private String userRole;
     
     public JFrameWithJTableMSDS() {
         initComponents();
         tblModel = (DefaultTableModel)jTable1.getModel();
-         file = new File("MSDS_Data_CSV_File.csv");
-        
-        
+         file = new File("MSDS_Data_CSV_File.csv");      
+        String[] choices = { "Employee", "Issuer", "Cleaner", "Manager"};
+        userRole = (String) JOptionPane.showInputDialog(null, "Enter Role",
+                "User Credentials", JOptionPane.QUESTION_MESSAGE, null, // Use
+                choices, "none");
+
+        LabelCurrentLogIn.setText("Current Log In As [" + userRole + "]");
+
+        if(userRole == "Employee" || userRole == "Cleaner")
+        {
+            buttonWriteToFile.setVisible(false);
+            ButtonRemoveSelected.setVisible(false);
+            ButtonCreateNewEntry.setVisible(false);
+        }
+
         for(int i = 0; i < 16; i++)
         {
          jTable1.getColumnModel().getColumn(i).setPreferredWidth(300);   
@@ -58,7 +71,6 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
         jTable1 = new JTable();
         ButtonRemoveSelected = new javax.swing.JButton();
         LabelCurrentLogIn = new javax.swing.JLabel();
-        ButtonEditEntry = new javax.swing.JButton();
         buttonSetTable = new javax.swing.JButton();
         buttonWriteToFile = new javax.swing.JButton();
 
@@ -94,13 +106,6 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
 
         LabelCurrentLogIn.setText("Current Log In As [          ]");
 
-        ButtonEditEntry.setText("Edit Selected Entry");
-        ButtonEditEntry.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonEditEntryActionPerformed(evt);
-            }
-        });
-
         buttonSetTable.setText("Load Entries From File");
         buttonSetTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +136,6 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ButtonEditEntry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(ButtonCreateNewEntry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(ButtonRemoveSelected, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -150,17 +154,15 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ButtonCreateNewEntry)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ButtonEditEntry)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ButtonRemoveSelected))
+                        .addComponent(ButtonCreateNewEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ButtonRemoveSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(buttonSetTable, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonWriteToFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(buttonWriteToFile, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -177,10 +179,6 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
                
             }
     }//GEN-LAST:event_ButtonRemoveSelectedActionPerformed
-
-    private void ButtonEditEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEditEntryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonEditEntryActionPerformed
 
     private void buttonSetTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSetTableActionPerformed
         // TODO add your handling code here:
@@ -295,7 +293,6 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonCreateNewEntry;
-    private javax.swing.JButton ButtonEditEntry;
     private javax.swing.JButton ButtonRemoveSelected;
     private javax.swing.JLabel LabelCurrentLogIn;
     private javax.swing.JLabel LabelTitle;
