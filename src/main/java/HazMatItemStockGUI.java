@@ -136,10 +136,18 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(ActionEvent evt) {
         System.out.println("testing back button click");
+        new InventoryGUI(inventory).setVisible(true);
+        this.dispose();
     }
 
     private void discardActionPerformed(java.awt.event.ActionEvent evt) {
         System.out.println("discard button click");
+//        itemName.setText("");
+//        itemStockNum.setText("");
+//        ShelfLocation.setText("");
+//        HazMatCat.setSelectedItem("Flammable");
+//        StorageArea.setSelectedItem("Common Area");
+//        quantityInStock.setText("");
     }
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,13 +197,4 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
         new InventoryGUI(inventory).setVisible(true);
         this.dispose();
     }
-
-//    void addItemActionPerformedListener(ActionListener mal) {
-//        addItem.addActionListener(mal);
-//    }
-//
-//    void addIventoryActionPerformedListener(ActionListener mal) {
-//        addInventory.addActionListener(mal);
-//    }
-
 }

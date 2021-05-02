@@ -1,10 +1,10 @@
-Cyanide,99999999,Y-Mart,Toxic,Special Locker,10
-Natree,97902207,Brick-Mart,Flammable,Flammable Locker,500
-C5,14092315,Warrior Base,Explosive,Flammable Locker,200
-Aluminum,16380695,Y-Mart,Oxidizing,Flammable Locker,120
-Acid,73788337,Y-Mart,Corrosive,Special Locker,314
-Nitrogen Canister,34104904,Warrior Base,Compressed Gas,Gas Cylinder Enclosure,40
-Nuclear Waste,78933026,Y-Mart,Reactive,Reactive Locker,20
-Green Goo,95055581,CircleDot,Special,Flammable Locker,47
-Tide Pods,31559346,CircleDot,Health Hazard,Special Locker,120
-Simple Green,83376539,Warrior Base,Organic  Peroxides,Common Area,300
+Cyanide,99999999,Y-Mart,Toxic,Special Locker,10,FALSE
+Natree,97902207,Brick-Mart,Flammable,Flammable Locker,500,FALSE
+C5,14092315,Warrior Base,Explosive,Flammable Locker,200,FALSE
+Aluminum,16380695,Y-Mart,Oxidizing,Flammable Locker,120,FALSE
+Acid,73788337,Y-Mart,Corrosive,Special Locker,314,FALSE
+Nitrogen Canister,34104904,Warrior Base,Compressed Gas,Gas Cylinder Enclosure,40,FALSE
+Nuclear Waste,78933026,Y-Mart,Reactive,Reactive Locker,20,FALSE
+Green Goo,95055581,CircleDot,Special,Flammable Locker,47,FALSE
+Tide Pods,31559346,CircleDot,Health Hazard,Special Locker,120,FALSE
+Simple Green,83376539,Warrior Base,Organic  Peroxides,Common Area,300,FALSE

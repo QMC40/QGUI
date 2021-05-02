@@ -6,7 +6,6 @@ import java.io.File;
 import java.util.List;
 import static java.lang.System.exit;
 
-
 public class FrontGUI extends javax.swing.JFrame {
 
     private HazMatInventory inventory;
@@ -186,9 +185,7 @@ public class FrontGUI extends javax.swing.JFrame {
 
     private void hazMatActionPerformed(ActionEvent evt, HazMatInventory subj) {
         System.out.println("testing HazMat button click");
-        InventoryGUI invenGUI = new InventoryGUI(subj);
-        invenGUI.setVisible(true);
-        InventoryController iController = new InventoryController(subj,invenGUI);
+        new InventoryGUI(subj).setVisible(true);
         dispose();
     }
 
@@ -209,15 +206,15 @@ public class FrontGUI extends javax.swing.JFrame {
         exit(0);
     }
 
-    private void hazMatActionPerformedActionPerformedListener(ActionListener mal) {
-        hazMatButton.addActionListener(mal);
-    }
-
-    private void managerActionPerformedListener(ActionListener mal) {
-        managerButton.addActionListener(mal);
-    }
-
-    private void employeeActionPerformedListener(ActionListener mal) {
-        employeeButton.addActionListener(mal);
-    }
+//    private void hazMatActionPerformedActionPerformedListener(ActionListener mal) {
+//        hazMatButton.addActionListener(mal);
+//    }
+//
+//    private void managerActionPerformedListener(ActionListener mal) {
+//        managerButton.addActionListener(mal);
+//    }
+//
+//    private void employeeActionPerformedListener(ActionListener mal) {
+//        employeeButton.addActionListener(mal);
+//    }
 }
