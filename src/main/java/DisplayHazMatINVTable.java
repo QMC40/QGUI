@@ -7,6 +7,7 @@ public class DisplayHazMatINVTable
     public DisplayHazMatINVTable(ArrayList<HazMatInventory.HazMatItem> hazMatItemList)
     {
         Object[][] rows = new Object[hazMatItemList.size()][7];
+
         Object[] cols = {"Name", "Stock Number", "Location",
                 "Category","Storage Area", "Quantity"};
         for (int i = 0; i < hazMatItemList.size(); i++)

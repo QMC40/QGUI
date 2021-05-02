@@ -6,7 +6,7 @@ public class DisplayMSDSTable
     public DisplayMSDSTable(List<MSDSObject> msds)
     {
         Object[][] rows = new Object[msds.size()][16];
-        Object[] cols = {"S1_Identification", "S2 Hazards Identification", "S3 Composition Information Ingredients",
+        Object[] cols = {"S1 Identification", "S2 Hazards Identification", "S3 Composition Information Ingredients",
                 "S4 First Aid Measures", "S5 Fire Fighting Measures", "S6 Accidental Release Measures",
                 "S7 Handling and Storage", "S8 Exposure Controls Personal Protection", "S9 Physical and Chemical Properties",
                 "S10 Stability and Reactivity", "S11 Toxicological Information", "S12 Ecological Information",
