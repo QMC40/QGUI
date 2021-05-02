@@ -4,7 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class HazMatItemStockGUI extends javax.swing.JFrame {
+
     HazMatInventory inventory;
+    boolean isWaste;
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel frameTitle;
     private javax.swing.JTextField itemName;
     private javax.swing.JTextField quantity;
@@ -12,9 +16,16 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
     private javax.swing.JButton save;
     private javax.swing.JButton discard;
     private javax.swing.JButton back;
+    // End of variables declaration//GEN-END:variables
 
-    public HazMatItemStockGUI(HazMatInventory subj) {
+    /**
+     * GUI for entering items into inventory, waste objects have 'waste' tag set to true
+     * @param subj  HazMatInventory object used throughout system
+     * @param waste boolean flag to indicate if this item is waste or new inventory
+     */
+    public HazMatItemStockGUI(HazMatInventory subj,boolean waste) {
         inventory = subj;
+        isWaste = waste;
         initComponents();
     }
 
@@ -52,7 +63,7 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         frameTitle.setFont(new Font("Monospaced", Font.BOLD, 18)); // NOI18N
-        frameTitle.setText("Add stock to inventory");
+        frameTitle.setText((isWaste) ? "Add waste for disposal" : "Add stock to inventory");
 
         itemName.setFont(new Font("Tahoma", Font.PLAIN, 14)); // NOI18N
         itemName.setText("name");
@@ -148,19 +159,51 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
     }
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        HazMatInventory.HazMatItem temp = null;
+        try {
+            // pull fields out of search GUI to reduce repeated calls
+            String name = getItemName();
+            String stockNumber = getStockNum();
+
+            // determine if both of the search fields are empty
+            if (!name.isEmpty() || !stockNumber.isEmpty()) {
+                // check if both populated and if so does name match stock number
+                if (!name.isEmpty() && !stockNumber.isEmpty()) {
+                    if (inventory.nameFinder(name).equals(inventory.stockNumberFinder(stockNumber))) {
+                        temp = inventory.nameFinder(name);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Named item " +
+                                "doesn't match stock number", "Search Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else if (!name.isEmpty()) {
+                    temp = inventory.nameFinder(name);
+                } else {
+                    temp = inventory.stockNumberFinder(stockNumber);                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Search fields are empty",
+                        "Search Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Search fields empty",
+                    "Search Error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(temp != null) {
+            temp.setQuantityInStock(getQuantity());
+            new InventoryGUI(inventory).setVisible(true);
+            this.dispose();
+        }
     }
 
-    public JTextField getItemName() {
-        return itemName;
+    public String getItemName() {
+        return itemName.getText().trim();
     }
 
-    public JTextField getQuantity() {
-        return quantity;
+    public int getQuantity() {
+        return Integer.parseInt(quantity.getText().trim());
     }
 
-    public JTextField getStockNum() {
-        return stockNum;
+    public String getStockNum() {
+        return stockNum.getText().trim();
     }
 
     private void AddItemActionPerformed(ActionEvent evt) {
@@ -194,4 +237,13 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
         new InventoryGUI(inventory).setVisible(true);
         this.dispose();
     }
+
+    public boolean isWaste() {
+        return isWaste;
+    }
+
+    public void setWaste(boolean waste) {
+        isWaste = waste;
+    }
+
 }

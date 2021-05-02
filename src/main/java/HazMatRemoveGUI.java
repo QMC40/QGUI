@@ -21,8 +21,8 @@ public class HazMatRemoveGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField jTextField1;
-    // End of variables declaration//GEN-END:variables
     private javax.swing.JTextField jTextField2;
+    // End of variables declaration//GEN-END:variables
 
     /**
      * Creates new form HazMatRemoveGUI
@@ -187,6 +187,7 @@ public class HazMatRemoveGUI extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Named item " +
                                 "doesn't match stock number", "Search Error", JOptionPane.ERROR_MESSAGE);
                     }
+                    //if one field empty search using other
                 } else if (!name.isEmpty()) {
                     temp = inventory.nameFinder(name);
                 } else {

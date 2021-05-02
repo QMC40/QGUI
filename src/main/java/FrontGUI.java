@@ -176,9 +176,8 @@ public class FrontGUI extends javax.swing.JFrame {
     private void msdsActionPerformed(java.awt.event.ActionEvent evt) {
 
         System.out.println("testing MSDS button click");
-        this.setVisible(false);
+        this.dispose();
         new JFrameWithJTableMSDS(inventory).setVisible(true);
-        this.setVisible(true);
     }
 
     private void hazMatActionPerformed(ActionEvent evt, HazMatInventory subj) {

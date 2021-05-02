@@ -192,7 +192,7 @@ public class InventoryGUI extends javax.swing.JFrame {
     private void AddInventoryActionPerformed(ActionEvent evt) {
         System.out.println("testing add inventory button click");
         dispose();
-        new HazMatItemStockGUI(inventory).setVisible(true);
+        new HazMatItemStockGUI(inventory,false).setVisible(true);
     }
 
     private void HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpActionPerformed
@@ -202,7 +202,7 @@ public class InventoryGUI extends javax.swing.JFrame {
     private void BackActionPerformed(ActionEvent evt) {
         System.out.println("testing back button click");
 
-        // call new front GUI instance up, make visable and dispose of inventory GUI
+        // call new front GUI instance up, make visible and dispose of inventory GUI
         new FrontGUI(inventory).setVisible(true);
         this.dispose();
     }

@@ -27,6 +27,7 @@ import javax.swing.table.DefaultTableModel;
  * @since 2021-5-2
  */
 public class JFrameWithJTableMSDS extends javax.swing.JFrame {
+    HazMatInventory inventory;
 
     /**
      * Creates new form JFrameWithJTableMSDS
@@ -45,6 +46,8 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
      */
 
     public JFrameWithJTableMSDS(HazMatInventory subj) {
+
+        this.inventory = subj;
         initComponents();
         tblModel = (DefaultTableModel)jTable1.getModel();
          file = new File("MSDS_Data_CSV_File.csv");      
@@ -120,6 +123,12 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
             }
         });
 
+        buttonExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonExitActionPerformed(evt);
+            }
+        });
+
         LabelCurrentLogIn.setText("Current Log In As [          ]");
 
         buttonSetTable.setText("Load Entries From File");
@@ -189,6 +198,7 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>
     /**
      * This method is when Remove Button is clicked
@@ -270,7 +280,9 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
      * @return none
      */
     private void buttonExitActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        // call new front GUI instance up, make visible and dispose of inventory GUI
+        new FrontGUI(inventory).setVisible(true);
+        this.dispose();
     }
 
     /**

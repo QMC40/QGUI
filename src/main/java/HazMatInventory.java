@@ -203,7 +203,7 @@ public class HazMatInventory {
         }
 
         public void setQuantityInStock(int quantityInStock) {
-            this.quantityInStock = quantityInStock;
+            this.quantityInStock += quantityInStock;
         }
 
         public boolean isWaste() {
