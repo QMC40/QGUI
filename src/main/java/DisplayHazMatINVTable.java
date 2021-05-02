@@ -1,9 +1,25 @@
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * <h1>Final Project - DisplayHazMatInvTable Class</h1>
+ *
+ * <b>Note: This class provides the to
+ * Display CSV file in a table.
+ *
+ *</b>
+ * @author Team 2
+ * @version 1.0
+ * @since 2021-5-2
+ */
 public class DisplayHazMatINVTable
 {
+    /**
+     * This method is used to
+     * Display HazMat Data on a table
+     * @param ArrayList<HazMatInventory.HazMatItem> hazMatItemList
+     * @return none
+     */
     public DisplayHazMatINVTable(ArrayList<HazMatInventory.HazMatItem> hazMatItemList)
     {
         Object[][] rows = new Object[hazMatItemList.size()][7];

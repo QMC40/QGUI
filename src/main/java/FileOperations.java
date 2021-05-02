@@ -7,9 +7,26 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * <h1>Final Project - FileOperations Class</h1>
+ *
+ * <b>Note: This class provides the ability to Read
+ * a csv file and write to a csv file.
+ *
+ *</b>
+ * @author Team 2
+ * @version 1.0
+ * @since 2021-5-2
+ */
 public class FileOperations
 {
+    /**
+     * This method is used to
+     * write to a CSV for MSDS.
+     * @param String fileName List<MSDSObject> listMSDS
+     * @throws IOException
+     * @return void
+     */
     public static void writeFileToCSVMSDS(String fileName, List<MSDSObject> listMSDS) throws IOException {
         FileWriter fw = new FileWriter(fileName,false); // Makes sure to Overwrite File
         for (MSDSObject listMSD : listMSDS) {
@@ -33,7 +50,15 @@ public class FileOperations
         fw.flush();
         fw.close();
     }
-
+    /**
+     * This method is used to
+     * read from a CSV for MSDS
+     * and return a List<MSDSObject>
+     * containing the entries from
+     * the csv.
+     * @param String fileName
+     * @return List<MSDSObject>
+     */
     public static List<MSDSObject> readINTOListMSDSFromCSV(String fileName) {
 
         List<MSDSObject> msdsAL = new ArrayList<>();
@@ -61,12 +86,24 @@ public class FileOperations
 
         return msdsAL;
     }
-
+    /**
+     * This method is used to
+     * create the MSDS Object
+     * for the List
+     * @param String[] s
+     * @return None
+     */
     private static MSDSObject createMSDSObject(String[] s) {
         return new MSDSObject(s[0],s[1],s[2],s[3],s[4],s[5],s[6],s[7],s[8],s[9],s[10],s[11],s[12],s[13],s[14],s[15]);
     }
 
-    //HazMat Inventory Items
+    /**
+     * This method is used to
+     * read from a CSV for HazMat.
+     * @param String fileName,
+     * ArrayList<HazMatInventory.HazMatItem> subj
+     * @return None
+     */
     public static void readINTOListHazMatInvItemsFromCSV(String fileName,
                                              ArrayList<HazMatInventory.HazMatItem> subj)
     {
@@ -85,7 +122,13 @@ public class FileOperations
             ioe.printStackTrace();
         }
     }
-
+    /**
+     * This method is used to
+     * write to a CSV for HazMat.
+     * @param String fileName ArrayList<HazMatInventory.HazMatItem> listHazMatInv
+     * @throws IOException
+     * @return void
+     */
     public static void writeFileToHazMatInvItemsFromCSV(String fileName, ArrayList<HazMatInventory.HazMatItem> listHazMatInv)
             throws IOException {
         FileWriter fw = new FileWriter(fileName,false); // Makes sure to Overwrite File

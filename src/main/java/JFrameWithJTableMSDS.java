@@ -15,8 +15,16 @@ import javax.swing.table.DefaultTableModel;
  */
 
 /**
+ * <h1>Final Project - JFrameWithJTableMSDS Class</h1>
  *
- * @author Patrick
+ * <b>Note: This class provides the ability to interact with
+ * a table containing data on MSDS as well as buttons
+ * to create new entry, remove, load and save.
+ *
+ *</b>
+ * @author Team 2
+ * @version 1.0
+ * @since 2021-5-2
  */
 public class JFrameWithJTableMSDS extends javax.swing.JFrame {
 
@@ -28,7 +36,14 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
     private Object tData[] = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
     private File file;
     private String userRole;
-    
+
+    /**
+     * This method is used to initialize components also requests the type of
+     * user logging in displaying the result and making different options available.
+     * This method sets the width of columns aswell
+     * @return none
+     */
+
     public JFrameWithJTableMSDS() {
         initComponents();
         tblModel = (DefaultTableModel)jTable1.getModel();
@@ -168,7 +183,12 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * This method is when Remove Button is clicked
+     * It will remove the selected item from the list
+     * as well as the table
+     * @return none
+     */
     private void ButtonRemoveSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRemoveSelectedActionPerformed
         // TODO add your handling code here:
         if(jTable1.getSelectedRow() != -1) {
@@ -179,7 +199,11 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
                
             }
     }//GEN-LAST:event_ButtonRemoveSelectedActionPerformed
-
+    /**
+     * This method is when Load Table is clicked
+     * Loading the table from the CSV File
+     * @return none
+     */
     private void buttonSetTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSetTableActionPerformed
         // TODO add your handling code here:
         msds = FileOperations.readINTOListMSDSFromCSV(file.getAbsolutePath()); 
@@ -216,7 +240,12 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
         }
       
     }//GEN-LAST:event_buttonSetTableActionPerformed
-
+    /**
+     * This method is when Save Table is clicked
+     * So that any changes will be written to the
+     * CSV file
+     * @return none
+     */
     private void buttonWriteToFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonWriteToFileActionPerformed
         // TODO add your handling code here:
         
@@ -229,7 +258,12 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
             Logger.getLogger(JFrameWithJTableMSDS.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_buttonWriteToFileActionPerformed
-
+    /**
+     * This method is when Create new Entry is
+     * clicked and adds to the list as well
+     * as the table
+     * @return none
+     */
     private void ButtonCreateNewEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCreateNewEntryActionPerformed
         // TODO add your handling code here:
         MSDSObject addObjMSDS = new MSDSObject();

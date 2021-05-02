@@ -1,8 +1,25 @@
 import javax.swing.*;
+import java.io.IOException;
 import java.util.List;
-
+/**
+ * <h1>Final Project - DisplayMSDSTable Class</h1>
+ *
+ * <b>Note: This class provides the to
+ * Display CSV file in a table.
+ *
+ *</b>
+ * @author Team 2
+ * @version 1.0
+ * @since 2021-5-2
+ */
 public class DisplayMSDSTable
 {
+    /**
+     * This method is used to
+     * Display MSDS Data on a table
+     * @param List<MSDSObject> msds
+     * @return none
+     */
     public DisplayMSDSTable(List<MSDSObject> msds)
     {
         Object[][] rows = new Object[msds.size()][16];
