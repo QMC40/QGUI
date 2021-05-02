@@ -44,7 +44,7 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
      * @return none
      */
 
-    public JFrameWithJTableMSDS() {
+    public JFrameWithJTableMSDS(HazMatInventory subj) {
         initComponents();
         tblModel = (DefaultTableModel)jTable1.getModel();
          file = new File("MSDS_Data_CSV_File.csv");      
@@ -89,7 +89,7 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
         buttonSetTable = new javax.swing.JButton();
         buttonWriteToFile = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         LabelTitle.setText("MSDS Table");
 
@@ -182,6 +182,7 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     /**
      * This method is when Remove Button is clicked
@@ -292,8 +293,9 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
 
     /**
      * @param args the command line arguments
+     * @param inventory
      */
-    public static void main(String args[]) {
+    public static void main(String[] args, HazMatInventory inventory) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -320,7 +322,7 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameWithJTableMSDS().setVisible(true);
+                new JFrameWithJTableMSDS(inventory).setVisible(true);
             }
         });
     }

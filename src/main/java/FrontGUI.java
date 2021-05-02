@@ -176,10 +176,8 @@ public class FrontGUI extends javax.swing.JFrame {
     private void msdsActionPerformed(java.awt.event.ActionEvent evt) {
 
         System.out.println("testing MSDS button click");
-        File file = new File("MSDS_Data_CSV_File.csv");
-        List<MSDSObject> msds = FileOperations.readINTOListMSDSFromCSV(file.getAbsolutePath());
         this.setVisible(false);
-        new DisplayMSDSTable(msds);
+        new JFrameWithJTableMSDS(inventory).setVisible(true);
         this.setVisible(true);
     }
 

@@ -5,10 +5,10 @@ import java.awt.event.ActionListener;
 
 public class HazMatItemStockGUI extends javax.swing.JFrame {
     HazMatInventory inventory;
-    private javax.swing.JLabel Title;
+    private javax.swing.JLabel frameTitle;
     private javax.swing.JTextField itemName;
-    private javax.swing.JTextField Quantity;
-    private javax.swing.JTextField StockNum;
+    private javax.swing.JTextField quantity;
+    private javax.swing.JTextField stockNum;
     private javax.swing.JButton save;
     private javax.swing.JButton discard;
     private javax.swing.JButton back;
@@ -41,18 +41,18 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
 
     private void initComponents() {
 
-        Title = new JLabel();
+        frameTitle = new JLabel();
         itemName = new JTextField();
         save = new JButton();
         discard = new JButton();
-        StockNum = new JTextField();
-        Quantity = new JTextField();
+        stockNum = new JTextField();
+        quantity = new JTextField();
         back = new JButton();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        Title.setFont(new Font("Monospaced", Font.BOLD, 18)); // NOI18N
-        Title.setText("Add stock to inventory");
+        frameTitle.setFont(new Font("Monospaced", Font.BOLD, 18)); // NOI18N
+        frameTitle.setText("Add stock to inventory");
 
         itemName.setFont(new Font("Tahoma", Font.PLAIN, 14)); // NOI18N
         itemName.setText("name");
@@ -71,11 +71,11 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
             }
         });
 
-        StockNum.setFont(new Font("Tahoma", Font.PLAIN, 14)); // NOI18N
-        StockNum.setText("Stock number");
+        stockNum.setFont(new Font("Tahoma", Font.PLAIN, 14)); // NOI18N
+        stockNum.setText("Stock number");
 
-        Quantity.setFont(new Font("Tahoma", Font.PLAIN, 14)); // NOI18N
-        Quantity.setText("Quantity in stock");
+        quantity.setFont(new Font("Tahoma", Font.PLAIN, 14)); // NOI18N
+        quantity.setText("Quantity in stock");
 
         back.setText("Back");
         back.addActionListener(new ActionListener() {
@@ -92,7 +92,7 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(Title, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(frameTitle, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGap(45, 45, 45)
                                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -104,21 +104,21 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
                                                                 .addComponent(back, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(0, 0, Short.MAX_VALUE))
                                                         .addComponent(itemName)
-                                                        .addComponent(StockNum)
-                                                        .addComponent(Quantity))))
+                                                        .addComponent(stockNum)
+                                                        .addComponent(quantity))))
                                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
-                                .addComponent(Title, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(frameTitle, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(itemName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
-                                .addComponent(StockNum, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(stockNum, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(Quantity, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(quantity, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                         .addComponent(save)
@@ -142,12 +142,9 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
 
     private void discardActionPerformed(java.awt.event.ActionEvent evt) {
         System.out.println("discard button click");
-//        itemName.setText("");
-//        itemStockNum.setText("");
-//        ShelfLocation.setText("");
-//        HazMatCat.setSelectedItem("Flammable");
-//        StorageArea.setSelectedItem("Common Area");
-//        quantityInStock.setText("");
+        itemName.setText("");
+        stockNum.setText("");
+        quantity.setText("");
     }
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,11 +156,11 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
     }
 
     public JTextField getQuantity() {
-        return Quantity;
+        return quantity;
     }
 
     public JTextField getStockNum() {
-        return StockNum;
+        return stockNum;
     }
 
     private void AddItemActionPerformed(ActionEvent evt) {

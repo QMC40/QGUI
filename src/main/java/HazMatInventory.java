@@ -107,11 +107,11 @@ public class HazMatInventory {
 
     //testing method to see what's in the inventory
     public String toString() {
-        StringBuilder buffer = new StringBuilder();
+        StringBuilder buffer = new StringBuilder("\n");
         for (HazMatItem subj : HazMatStock) {
-            System.out.println(subj.toString());
-            buffer.append(subj).append("\n");
+            buffer.append(subj).append("\n\n");
         }
+        buffer.append("\n");
         return buffer.toString();
     }
 
@@ -167,10 +167,11 @@ public class HazMatInventory {
         }
 
         public String toString() {
-            System.out.println("test\n");
             return String.format("Name: %s%nStock number: %s%nHazardous Material Cat: %s%nStorage area: %s%n" +
-                            "Shelf location: %s%nQuantity in stock: %d", getName(), getStockNumber(), getHazMatCategory(),
-                    getStorageArea(), getShelfLocation(), getQuantityInStock());
+                            "Shelf location: %s%nQuantity in stock: %d%nHazardous Waste? %s", getName(),
+                    getStockNumber(),
+                    getHazMatCategory(),
+                    getStorageArea(), getShelfLocation(), getQuantityInStock(),(isWaste() ? "Y" : "N"));
         }
 
         @Override
@@ -180,7 +181,6 @@ public class HazMatInventory {
             HazMatItem that = (HazMatItem) o;
             return getQuantityInStock() == that.getQuantityInStock() && isWaste() == that.isWaste() && getName().equals(that.getName()) && getStockNumber().equals(that.getStockNumber()) && getHazMatCategory().equals(that.getHazMatCategory()) && getStorageArea().equals(that.getStorageArea()) && getShelfLocation().equals(that.getShelfLocation());
         }
-
 
         //setters and getters
         public String getName() {

@@ -23,6 +23,10 @@ public class HazMatInputGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * GUI for input of new items to HM inventory
+     * @param inventory HazMatInventory inventory object holding system wide inventory
+     */
     public HazMatInputGUI(HazMatInventory inventory) {
         initComponents(inventory);
     }

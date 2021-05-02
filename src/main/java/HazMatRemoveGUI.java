@@ -170,43 +170,9 @@ public class HazMatRemoveGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents)
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-
-        try {
-            // pull fields out of search GUI to reduce repeated calls
-            String name = getRemoveLabelName();
-            String stockNumber = getRemoveLabelStockNumber();
-
-            // determine if both of the search fields are empty
-            if (!name.isEmpty() || !stockNumber.isEmpty()) {
-                // check if both populated and if so does name match stock number
-                if (!name.isEmpty() && !stockNumber.isEmpty()) {
-                    if (inventory.nameFinder(name).equals(inventory.stockNumberFinder(stockNumber))) {
-                        inventory.removeHazMatItemFromInventory(inventory.nameFinder(name));
-                        new InventoryGUI(inventory).setVisible(true);
-                        this.dispose();
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Named item " +
-                                "doesn't match stock number", "Search Error", JOptionPane.ERROR_MESSAGE);
-                    }
-                } else if (!name.isEmpty()) {
-                    inventory.removeHazMatItemFromInventory(inventory.nameFinder(name));
-                    new InventoryGUI(inventory).setVisible(true);
-                    this.dispose();
-                } else {
-                    inventory.removeHazMatItemFromInventory(inventory.stockNumberFinder(stockNumber));
-                    new InventoryGUI(inventory).setVisible(true);
-                    this.dispose();
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Search fields are empty",
-                        "Search Error", JOptionPane.ERROR_MESSAGE);
-            } // for HazMatRemoveGUI button1 ( remove button ) click
-        } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "Search fields empty",
-                    "Search Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new InventoryGUI(inventory).setVisible(true);
