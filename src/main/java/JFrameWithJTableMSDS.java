@@ -40,7 +40,7 @@ public class JFrameWithJTableMSDS extends javax.swing.JFrame {
 
         LabelCurrentLogIn.setText("Current Log In As [" + userRole + "]");
 
-        if(userRole == "Employee" || userRole == "Cleaner")
+        if(userRole == "Employee" || userRole == "Cleaner" || userRole == null)
         {
             buttonWriteToFile.setVisible(false);
             ButtonRemoveSelected.setVisible(false);
