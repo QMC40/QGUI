@@ -1,5 +1,17 @@
 import javax.swing.*;
 
+
+/**
+ * <h1>Final Project - MSDSObject Class</h1>
+ *
+ * <b>Note: This class provides the MSDS Object
+ * with the 16 sections from a MSDS Sheet
+ *
+ *</b>
+ * @author Team 2
+ * @version 1.0
+ * @since 2021-5-2
+ */
 public class MSDSObject
 {
     private String S1_Identification;
@@ -22,7 +34,12 @@ public class MSDSObject
     public int number_of_sections;
     //
     public String[] Array_Of_Section_Information;
-
+    /**
+     * This is the constructor for
+     * MSDS Object
+     * @param String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8, String s9, String s10, String s11, String s12, String s13, String s14, String s15, String s16
+     * @return none
+     */
     public MSDSObject(String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8, String s9, String s10, String s11, String s12, String s13, String s14, String s15, String s16)
     {
 
@@ -43,7 +60,13 @@ public class MSDSObject
         this.S15_Regulatory_Information = s15;
         this.S16_Other_Information = s16;
     }
-
+    /**
+     * This is the constructor for
+     * MSDS Object that sets all the
+     * questions for the Section Information
+     * @param none
+     * @return none
+     */
     public MSDSObject()
     {
         number_of_sections = 16;
@@ -247,7 +270,13 @@ public class MSDSObject
                 "be included here.";
 
     }
-
+    /**
+     * This is the method to
+     * ask and set the section
+     * Information
+     * @param none
+     * @return none
+     */
     public void Ask_and_Set_All_Input()
     {
         this.S1_Identification = JOptionPane.showInputDialog(null,Array_Of_Section_Information[0],"Section 1",JOptionPane.INFORMATION_MESSAGE );
@@ -268,135 +297,304 @@ public class MSDSObject
         this.S16_Other_Information = JOptionPane.showInputDialog(null,Array_Of_Section_Information[15],"Section 16",JOptionPane.INFORMATION_MESSAGE );
 
     }
-
+    /**
+     * This is the method used
+     * to get Section 1
+     * @param none
+     * @return String
+     */
     public String getS1_Identification() {
         return S1_Identification;
     }
-
+    /**
+     * This is the method used
+     * to set Section 1
+     * @param String
+     * @return none
+     */
     public void setS1_Identification(String s1_Identification) {
         S1_Identification = s1_Identification;
     }
-
+    /**
+     * This is the method used
+     * to get Section 2
+     * @param none
+     * @return String
+     */
     public String getS2_Hazards_Identification() {
         return S2_Hazards_Identification;
     }
-
+    /**
+     * This is the method used
+     * to set Section 2
+     * @param String
+     * @return none
+     */
     public void setS2_Hazards_Identification(String s2_Hazards_Identification) {
         S2_Hazards_Identification = s2_Hazards_Identification;
     }
-
+    /**
+     * This is the method used
+     * to get Section 3
+     * @param none
+     * @return String
+     */
     public String getS3_Composition_Information_Ingredients() {
         return S3_Composition_Information_Ingredients;
     }
-
+    /**
+     * This is the method used
+     * to set Section 3
+     * @param String
+     * @return none
+     */
     public void setS3_Composition_Information_Ingredients(String s3_Composition_Information_Ingredients) {
         S3_Composition_Information_Ingredients = s3_Composition_Information_Ingredients;
     }
-
+    /**
+     * This is the method used
+     * to get Section 4
+     * @param none
+     * @return String
+     */
     public String getS4_First_Aid_Measures() {
         return S4_First_Aid_Measures;
     }
-
+    /**
+     * This is the method used
+     * to set Section 4
+     * @param String
+     * @return none
+     */
     public void setS4_First_Aid_Measures(String s4_First_Aid_Measures) {
         S4_First_Aid_Measures = s4_First_Aid_Measures;
     }
-
+    /**
+     * This is the method used
+     * to get Section 5
+     * @param none
+     * @return String
+     */
     public String getS5_Fire_Fighting_Measures() {
         return S5_Fire_Fighting_Measures;
     }
-
+    /**
+     * This is the method used
+     * to set Section 5
+     * @param String
+     * @return none
+     */
     public void setS5_Fire_Fighting_Measures(String s5_Fire_Fighting_Measures) {
         S5_Fire_Fighting_Measures = s5_Fire_Fighting_Measures;
     }
-
+    /**
+     * This is the method used
+     * to get Section 6
+     * @param none
+     * @return String
+     */
     public String getS6_Accidental_Release_Measures() {
         return S6_Accidental_Release_Measures;
     }
-
+    /**
+     * This is the method used
+     * to set Section 5
+     * @param String
+     * @return none
+     */
     public void setS6_Accidental_Release_Measures(String s6_Accidental_Release_Measures) {
         S6_Accidental_Release_Measures = s6_Accidental_Release_Measures;
     }
-
+    /**
+     * This is the method used
+     * to get Section 7
+     * @param none
+     * @return String
+     */
     public String getS7_Handling_and_Storage() {
         return S7_Handling_and_Storage;
     }
-
+    /**
+     * This is the method used
+     * to set Section 7
+     * @param String
+     * @return none
+     */
     public void setS7_Handling_and_Storage(String s7_Handling_and_Storage) {
         S7_Handling_and_Storage = s7_Handling_and_Storage;
     }
-
+    /**
+     * This is the method used
+     * to get Section 8
+     * @param none
+     * @return String
+     */
     public String getS8_Exposure_Controls_Personal_Protection() {
         return S8_Exposure_Controls_Personal_Protection;
     }
-
+    /**
+     * This is the method used
+     * to set Section 8
+     * @param String
+     * @return none
+     */
     public void setS8_Exposure_Controls_Personal_Protection(String s8_Exposure_Controls_Personal_Protection) {
         S8_Exposure_Controls_Personal_Protection = s8_Exposure_Controls_Personal_Protection;
     }
-
+    /**
+     * This is the method used
+     * to get Section 9
+     * @param none
+     * @return String
+     */
     public String getS9_Physical_and_Chemical_Properties() {
         return S9_Physical_and_Chemical_Properties;
     }
-
+    /**
+     * This is the method used
+     * to set Section 9
+     * @param String
+     * @return none
+     */
     public void setS9_Physical_and_Chemical_Properties(String s9_Physical_and_Chemical_Properties) {
         S9_Physical_and_Chemical_Properties = s9_Physical_and_Chemical_Properties;
     }
-
+    /**
+     * This is the method used
+     * to get Section 10
+     * @param none
+     * @return String
+     */
     public String getS10_Stability_and_Reactivity() {
         return S10_Stability_and_Reactivity;
     }
-
+    /**
+     * This is the method used
+     * to set Section 10
+     * @param String
+     * @return none
+     */
     public void setS10_Stability_and_Reactivity(String s10_Stability_and_Reactivity) {
         S10_Stability_and_Reactivity = s10_Stability_and_Reactivity;
     }
-
+    /**
+     * This is the method used
+     * to get Section 11
+     * @param none
+     * @return String
+     */
     public String getS11_Toxicological_Information() {
         return S11_Toxicological_Information;
     }
-
+    /**
+     * This is the method used
+     * to set Section 11
+     * @param String
+     * @return none
+     */
     public void setS11_Toxicological_Information(String s11_Toxicological_Information) {
         S11_Toxicological_Information = s11_Toxicological_Information;
     }
-
+    /**
+     * This is the method used
+     * to get Section 12
+     * @param none
+     * @return String
+     */
     public String getS12_Ecological_Information() {
         return S12_Ecological_Information;
     }
-
+    /**
+     * This is the method used
+     * to set Section 12
+     * @param String
+     * @return none
+     */
     public void setS12_Ecological_Information(String s12_Ecological_Information) {
         S12_Ecological_Information = s12_Ecological_Information;
     }
-
+    /**
+     * This is the method used
+     * to get Section 13
+     * @param none
+     * @return String
+     */
     public String getS13_Disposal_Considerations() {
         return S13_Disposal_Considerations;
     }
-
+    /**
+     * This is the method used
+     * to set Section 13
+     * @param String
+     * @return none
+     */
     public void setS13_Disposal_Considerations(String s13_Disposal_Considerations) {
         S13_Disposal_Considerations = s13_Disposal_Considerations;
     }
-
+    /**
+     * This is the method used
+     * to get Section 14
+     * @param none
+     * @return String
+     */
     public String getS14_Transport_Information() {
         return S14_Transport_Information;
     }
-
+    /**
+     * This is the method used
+     * to set Section 14
+     * @param String
+     * @return none
+     */
     public void setS14_Transport_Information(String s14_Transport_Information) {
         S14_Transport_Information = s14_Transport_Information;
     }
-
+    /**
+     * This is the method used
+     * to get Section 15
+     * @param none
+     * @return String
+     */
     public String getS15_Regulatory_Information() {
         return S15_Regulatory_Information;
     }
-
+    /**
+     * This is the method used
+     * to set Section 15
+     * @param String
+     * @return none
+     */
     public void setS15_Regulatory_Information(String s15_Regulatory_Information) {
         S15_Regulatory_Information = s15_Regulatory_Information;
     }
-
+    /**
+     * This is the method used
+     * to get Section 16
+     * @param none
+     * @return String
+     */
     public String getS16_Other_Information() {
         return S16_Other_Information;
     }
-
+    /**
+     * This is the method used
+     * to set Section 16
+     * @param String
+     * @return none
+     */
     public void setS16_Other_Information(String s16_Other_Information) {
         S16_Other_Information = s16_Other_Information;
     }
 
+    /**
+     * This is the method used
+     * to overide the toString
+     * and return all the sections
+     * in one string
+     * @overide toString
+     * @param none
+     * @return String
+     */
     @Override
     public String toString() {
         return "MSDSObject{" +

@@ -5,7 +5,7 @@ import java.util.List;
  * <h1>Final Project - DisplayHazMatInvTable Class</h1>
  *
  * <b>Note: This class provides the to
- * Display CSV file in a table.
+ * Display CSV file in a table./
  *
  *</b>
  * @author Team 2
