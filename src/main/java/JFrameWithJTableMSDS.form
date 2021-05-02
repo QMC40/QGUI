@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="LabelTitle" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="493" max="-2" attributes="0"/>
+                      <Component id="LabelCurrentLogIn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="ButtonCreateNewEntry" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="ButtonRemoveSelected" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="buttonSetTable" max="32767" attributes="0"/>
+                                  <Component id="buttonWriteToFile" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jScrollPane" min="-2" pref="810" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="LabelTitle" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                  <Component id="LabelCurrentLogIn" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane" min="-2" pref="327" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="ButtonCreateNewEntry" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="ButtonRemoveSelected" min="-2" pref="33" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="buttonSetTable" min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="buttonWriteToFile" min="-2" pref="32" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="LabelTitle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="MSDS Table"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="ButtonCreateNewEntry">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Create New Entry"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCreateNewEntryActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jTable1">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="16" rowCount="0">
+                <Column editable="true" title="S1 Identification" type="java.lang.Object"/>
+                <Column editable="true" title="S2 Hazards Identification" type="java.lang.Object"/>
+                <Column editable="true" title="S3 Composition Information Ingredients" type="java.lang.Object"/>
+                <Column editable="true" title="S4 First Aid Measures" type="java.lang.Object"/>
+                <Column editable="true" title="S5 Fire Fighting Measures" type="java.lang.Object"/>
+                <Column editable="true" title="S6 Accidental Release Measures" type="java.lang.Object"/>
+                <Column editable="true" title="S7 Handling and Storage" type="java.lang.Object"/>
+                <Column editable="true" title="S8 Exposure Controls Personal Protection" type="java.lang.Object"/>
+                <Column editable="true" title="S9 Physical and Chemical Properties" type="java.lang.Object"/>
+                <Column editable="true" title="S10 Stability and Reactivity" type="java.lang.Object"/>
+                <Column editable="true" title="S11 Toxicological Information" type="java.lang.Object"/>
+                <Column editable="true" title="S12 Ecological Information" type="java.lang.Object"/>
+                <Column editable="true" title="S13 Disposal Considerations" type="java.lang.Object"/>
+                <Column editable="true" title="S14 Transport Information" type="java.lang.Object"/>
+                <Column editable="true" title="S15 Regulatory Information" type="java.lang.Object"/>
+                <Column editable="true" title="S16 Other Information" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="autoResizeMode" type="int" value="0"/>
+            <Property name="rowHeight" type="int" value="50"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="ButtonRemoveSelected">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Remove Selected Entry"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonRemoveSelectedActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelCurrentLogIn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Current Log In As [          ]"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonSetTable">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Load Entries From File"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSetTableActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonWriteToFile">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Save Changes To File"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonWriteToFileActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
