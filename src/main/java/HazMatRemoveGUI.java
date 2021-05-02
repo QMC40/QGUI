@@ -171,7 +171,39 @@ public class HazMatRemoveGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents)
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
+        HazMatInventory.HazMatItem temp = null;
+        try {
+            // pull fields out of search GUI to reduce repeated calls
+            String name = getRemoveLabelName();
+            String stockNumber = getRemoveLabelStockNumber();
+
+            // determine if both of the search fields are empty
+            if (!name.isEmpty() || !stockNumber.isEmpty()) {
+                // check if both populated and if so does name match stock number
+                if (!name.isEmpty() && !stockNumber.isEmpty()) {
+                    if (inventory.nameFinder(name).equals(inventory.stockNumberFinder(stockNumber))) {
+                        temp = inventory.nameFinder(name);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Named item " +
+                                "doesn't match stock number", "Search Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else if (!name.isEmpty()) {
+                    temp = inventory.nameFinder(name);
+                } else {
+                    temp = inventory.stockNumberFinder(stockNumber);                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Search fields are empty",
+                        "Search Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Search fields empty",
+                    "Search Error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(temp != null) {
+            inventory.removeHazMatItemFromInventory(temp);
+            new InventoryGUI(inventory).setVisible(true);
+            this.dispose();
+        } // for HazMatRemoveGUI button1 ( remove button ) click
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class HazMatInventory {
@@ -31,15 +30,6 @@ public class HazMatInventory {
     //refactor to implement exception handling for bad entry / boolean return
     //for entry confirmation?
 
-    public void addHazMatItemToWasteInventory() {
-        HazMatItem gain = HazMatItem.createHazMatItem();
-        HazMatStock.add(gain);
-    }
-
-    public void removeHazMatItemFromWasteInventory(HazMatItem loss) {
-        HazMatStock.remove(loss);
-    }
-
     public void issueInventory(HazMatItem issue, int quantity) {
         HazMatStock.get(HazMatStock.indexOf(issue)).quantityInStock -= quantity;
     }
@@ -54,38 +44,22 @@ public class HazMatInventory {
 
     public void removeHazMatItemFromInventory(HazMatItem loss) {
         HazMatStock.remove(loss);
-        String message = String.format("%s Removed",loss.getName());
+        String message = String.format("%s Removed", loss.getName());
         JOptionPane.showMessageDialog(null, message);
         System.out.printf("Current inventory size: %d\n", getHazMatStock().size());
     }
 
-//    public void removeHazMatItemByString(String subj) { // for remove gui
-//
-//        for (HazMatItem e : HazMatStock) {
-//            if (e.getName().equals(subj)){
-//                System.out.println("Removed " + e.getName() + " from inventory");
-//                HazMatStock.remove(e);
-//                return;
-//            } else {
-//                continue;
-//            }
-//        }
-//        System.out.println(subj + " does not exist in the inventory");
-//    } // remover code for HazMatInventory
-
     public HazMatItem nameFinder(String findMe) {
-        if (findMe != null) {
-            try {
-                for (HazMatItem e : HazMatStock) {
-                    if (e.getName().equals(findMe)) {
-                        return e;
-                    }
+        try {
+            for (HazMatItem e : HazMatStock) {
+                if (e.getName().equals(findMe)) {
+                    return e;
                 }
-            } catch (NullPointerException e) {
-                JOptionPane.showMessageDialog(null, "HazMatStock is empty");
-                return null;
             }
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "HazMatStock is empty");
         }
+        JOptionPane.showMessageDialog(null, "item not found in inventory");
         return null;
     } // finder for HazMatInventory names
 
@@ -102,6 +76,7 @@ public class HazMatInventory {
                 return null;
             }
         }
+        JOptionPane.showMessageDialog(null, "item not found in inventory");
         return null;
     } // finder for HazMatInventory Stock numbers
 
@@ -171,7 +146,7 @@ public class HazMatInventory {
                             "Shelf location: %s%nQuantity in stock: %d%nHazardous Waste? %s", getName(),
                     getStockNumber(),
                     getHazMatCategory(),
-                    getStorageArea(), getShelfLocation(), getQuantityInStock(),(isWaste() ? "Y" : "N"));
+                    getStorageArea(), getShelfLocation(), getQuantityInStock(), (isWaste() ? "Y" : "N"));
         }
 
         @Override
