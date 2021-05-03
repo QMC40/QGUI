@@ -1,9 +1,8 @@
 import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
- *
+ * class stores and operates on input hazardous material inventory data
  */
 public class HazMatInventory {
 
@@ -12,40 +11,60 @@ public class HazMatInventory {
      */
     private ArrayList<HazMatItem> HazMatStock = new ArrayList<>();
 
-    //NOT THREAD SAFE / NOT SELF-SYNCHRONIZING!!!
-    // another possible interface opportunity?
-    // public interface HazMatInventoryAccess {}
-
     /**
      * constructor
      */
     public HazMatInventory() {
     }
 
+    /**
+     * returns reference to inventory ArrayList
+     * @return ArrayList<HazMatItem> stored ArrayList of HazMatItems</HazMatItem>
+     */
     public ArrayList<HazMatItem> getHazMatStock() {
         return HazMatStock;
     }
 
-
+    /** UNIMPLEMENTED
+     * intended to query inventory to determine if requested item was in stock
+     * @param subj HazMatItem item being requested from inventory
+     * @return boolean status of item being in the inventory
+     */
     public boolean isInInventory(HazMatItem subj) {
         return (HazMatStock.contains(subj));
     }
 
-    //refactor to implement exception handling for bad entry / boolean return
-    //for entry confirmation?
-
+    /** UNIMPLEMENTED
+     * intended to take issue request and if available 'issue' the material and deduct the issued quantity
+     * from the inventory
+     * @param issue HazMatItem material to be issued to the user
+     * @param quantity int quantity of the material requested
+     */
     public void issueInventory(HazMatItem issue, int quantity) {
         HazMatStock.get(HazMatStock.indexOf(issue)).quantityInStock -= quantity;
     }
 
+    /** UNIMPLEMENTED
+     * intended to add stock to an item already in the inventory
+     * @param supply HazMatItem item being stocked into inventory
+     * @param quantity int number of items to be added to the inventory
+     */
     public void addToInventory(HazMatItem supply, int quantity) {
         HazMatStock.get(HazMatStock.indexOf(supply)).quantityInStock += quantity;
     }
 
+    /**
+     * adds a new item of HazMat into the inventory system
+     * @param gain HazMatItem HazMat object to be added to inventory tracking
+     */
     public void addHazMatItemToInventory(HazMatItem gain) {
         HazMatStock.add(gain);
     }
 
+    /**
+     * removed submitted HazMatItem object from the inventory tracker
+     * @param loss HazMatItem item to be removed from tracking
+     */
     public void removeHazMatItemFromInventory(HazMatItem loss) {
         HazMatStock.remove(loss);
         String message = String.format("%s Removed", loss.getName());
@@ -53,6 +72,11 @@ public class HazMatInventory {
         System.out.printf("Current inventory size: %d\n", getHazMatStock().size());
     }
 
+    /**
+     * searches inventory for item based on name and returns the object if found, null otherwise
+     * @param findMe String search target
+     * @return HazMatItem item found in inventory, null if not found
+     */
     public HazMatItem nameFinder(String findMe) {
         try {
             for (HazMatItem e : HazMatStock) {
@@ -66,6 +90,11 @@ public class HazMatInventory {
         return null;
     } // finder for HazMatInventory names
 
+    /**
+     * searches inventory for item based on stock number and returns the object if found, null otherwise
+     * @param findMe String search target
+     * @return HazMatItem item found in inventory, null if not found
+     */
     public HazMatItem stockNumberFinder(String findMe) {
         if (findMe != null) {
             try {
@@ -82,7 +111,10 @@ public class HazMatInventory {
         return null;
     } // finder for HazMatInventory Stock numbers
 
-    //testing method to see what's in the inventory
+    /**
+     * overloaded toString to print contents of inventory
+     * @return String formatted string of inventory contents
+     */
     public String toString() {
         StringBuilder buffer = new StringBuilder("\n");
         for (HazMatItem subj : HazMatStock) {
@@ -92,7 +124,9 @@ public class HazMatInventory {
         return buffer.toString();
     }
 
-    //Item of Haz Mat to be inventoried
+    /**
+     * class of HazMat objects for tracking inventory in the system
+      */
     protected static class HazMatItem {
 
         String name;
@@ -103,10 +137,23 @@ public class HazMatInventory {
         int quantityInStock;
         boolean waste;
 
+        /**
+         * no args constructor
+         */
         public HazMatItem() {
             this("", "", "", "", "", 0, false);
         }
 
+        /**
+         * args constructor
+         * @param name String Common name of the material
+         * @param stockNumber String stock number of the material
+         * @param hazMatCategory String category of hazardous material
+         * @param storageArea String storage requirements of the material
+         * @param shelfLocation String specific location with it's storage containment
+         * @param stock int quantity in stock of the item
+         * @param waste boolean is the item HazMat Waste or new stock?
+         */
         public HazMatItem(String name, String stockNumber, String hazMatCategory, String storageArea,
                           String shelfLocation, int stock, boolean waste) {
             this.name = name;
@@ -118,39 +165,33 @@ public class HazMatInventory {
             this.waste = waste;
         }
 
+        /**
+         * utility constructor to accept attribute file read in operation in FileOperations
+         * @param attributes String array of characteristics from file read in
+         */
         public HazMatItem(String[] attributes) {
             this(attributes[0], attributes[1], attributes[2], attributes[3], attributes[4],
                     Integer.parseInt(attributes[5]), Boolean.parseBoolean(attributes[6]));
         }
 
-        public static HazMatItem createHazMatItem() {
-            System.out.println("Enter data for HazMat Item to be added:");
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Name: ");
-            String name = scanner.nextLine();
-            System.out.print("Stock Number: ");
-            String stockNumber = scanner.nextLine();
-            System.out.print("HazMat Category: ");
-            String hazMatCategory = "FLAMMABLE";
-            System.out.print("\nStorage Area: ");
-            String storageArea = "COMMON";
-            System.out.print("\nShelf Location: ");
-            String shelfLocation = scanner.nextLine();
-            //add invalid input exception test
-            System.out.print("Quantity in stock: ");
-            int stock = scanner.nextInt();
-            return new HazMatItem(name, stockNumber, hazMatCategory, storageArea,
-                    shelfLocation, stock, false);
-        }
-
+        /**
+         * overridden toString method for printing out HazMatItem object fields
+         * @return String formatted values of object fields
+         */
+        @Override
         public String toString() {
             return String.format("Name: %s%nStock number: %s%nHazardous Material Cat: %s%nStorage area: %s%n" +
                             "Shelf location: %s%nQuantity in stock: %d%nHazardous Waste? %s", getName(),
-                    getStockNumber(),
-                    getHazMatCategory(),
-                    getStorageArea(), getShelfLocation(), getQuantityInStock(), (isWaste() ? "Y" : "N"));
+                    getStockNumber(), getHazMatCategory(), getStorageArea(), getShelfLocation(),
+                    getQuantityInStock(), (isWaste() ? "Y" : "N"));
         }
 
+
+        /**
+         * overridden equals method
+         * @param o Object for comparison
+         * @return boolean evaluation of the equivalence of the two objects
+         */
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
