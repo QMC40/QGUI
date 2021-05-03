@@ -220,7 +220,9 @@ public class HazMatInputGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveItemActionPerformed(ActionEvent evt, HazMatInventory inventory) {
-        System.out.println("input save button pushed");
+
+        // check if item page is fully filled out, if so make new item, add it to the inventory and
+        // go back to inventory GUI
         if(!getItemName().isEmpty() && !getItemStockNum().isEmpty() && !getShelfLocation().isEmpty()) {
             HazMatInventory.HazMatItem temp;
             temp = new HazMatInventory.HazMatItem(
@@ -255,6 +257,7 @@ public class HazMatInputGUI extends javax.swing.JFrame {
         quantityInStock.setText("");
     }
 
+    // getters
     public String getItemName() {
         return itemName.getText();
     }

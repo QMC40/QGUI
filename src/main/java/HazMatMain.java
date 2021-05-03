@@ -56,7 +56,7 @@ public class HazMatMain extends javax.swing.JFrame {
         System.out.printf("arraylist size before: %d\n",inventory.getHazMatStock().size());
         File file = new File("HazMatInv_Data_CSV_File.csv");
         FileOperations.readINTOListHazMatInvItemsFromCSV(file.getAbsolutePath(),inventory.getHazMatStock());
-//        System.out.printf("arraylist size after: %d\n",inventory.getHazMatStock().size());
+        System.out.printf("arraylist size after: %d\n",inventory.getHazMatStock().size());
 //        try {
 //            FileOperations.writeFileToHazMatInvItemsFromCSV("test.csv",inventory.getHazMatStock());
 //        } catch (IOException e) {

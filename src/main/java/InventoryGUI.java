@@ -209,17 +209,4 @@ public class InventoryGUI extends javax.swing.JFrame {
         new FrontGUI(inventory).setVisible(true);
         this.dispose();
     }
-
-//    void addItemActionPerformedListener(ActionListener mal) {
-//        addItem.addActionListener(mal);
-//    }
-
-//    void addInventoryActionPerformedListener(ActionListener mal) {
-//        addInventory.addActionListener(mal);
-//    }
-
-//    void BackActionPerformed(ActionListener mal) {
-//        back.addActionListener(mal);
-//    }
-
 }

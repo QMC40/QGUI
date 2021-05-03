@@ -194,18 +194,6 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
         }
     }
 
-    public String getItemName() {
-        return itemName.getText().trim();
-    }
-
-    public int getQuantity() {
-        return Integer.parseInt(quantity.getText().trim());
-    }
-
-    public String getStockNum() {
-        return stockNum.getText().trim();
-    }
-
     private void AddItemActionPerformed(ActionEvent evt) {
 
         System.out.println("testing add item button click");
@@ -238,12 +226,21 @@ public class HazMatItemStockGUI extends javax.swing.JFrame {
         this.dispose();
     }
 
-    public boolean isWaste() {
-        return isWaste;
+    // getters
+    public String getItemName() {
+        return itemName.getText().trim();
     }
 
-    public void setWaste(boolean waste) {
-        isWaste = waste;
+    public int getQuantity() {
+        return Integer.parseInt(quantity.getText().trim());
+    }
+
+    public String getStockNum() {
+        return stockNum.getText().trim();
+    }
+
+    public boolean isWaste() {
+        return isWaste;
     }
 
 }
