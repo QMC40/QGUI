@@ -1,20 +1,49 @@
-/*
-This is a NETBEANS project
-Recommend cloning it to desktop then open as new project in NETBEANS
 
- Some testing code in main is commented out, check
+// Name: Patrick Carroll, Aaron Fortner and James Montis
+// Class: COSC 3324 SP21
+// Instructor: Dr Alihan Hadimlioglu
+// OOP Team Project
+// Date: Sun May 02, 2021
+// Program description: Hazardous Materials inventory and documentation system demonstration
 
-  INCLUDE AT YOUR OWN PERIL
-*/
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
-
+/**
+ * <h1>Final Project - Hazardous Material inventory system</h1>
+ * <br/>
+ * <b>
+ * If we think about the steps you should be dealing with, you have the requirements phase in which you should be writing a description of the project you are working on. The requirements document is not a technical definition of the project; it is an overview of the application. This document should be understandable by anyone. You should be describing the application the way that we discussed in the class; a document well enough so that we can analyze the uses of the system.
+ * Second phase is the design phase in which you actually design your system by using UML diagrams, such as use case diagrams and class diagrams (these two are required, others like activity diagrams will earn you some bonus points). To draw these, you can use ArgoUML, Microsoft Visio, Omni Graffle, etc. When you are preparing your design document you can use Word or PDF and it should be formal and detailed enough. The requirements document should be included as well. This document serves as a documentation, so any details on how the application is used should be included.
+ * Last phase is the actual implementation of the project. It is a good idea to divide these tasks between yourselves and try to deal with different parts of the system.
+ * Once the teams are certain, you will be added to Trello groups to collaborate. I will be tracking your contribution to the project and will grade you individually accordingly. Make sure to show how you contribute, post as much as possible (actual content as you design & implement).
+ * <br/><br/>
+ * I am expecting you to prepare:<br/>
+ * <li>&emsp;Documentation (A single unified document (Word or PDF), including requirements document, diagrams, any other application specific  details you may need to include)
+ * <li>&emsp;Implementation (Java project)
+ * <br/><br/>
+ * Example projects:
+ * <br/>
+ * <li>&emsp;A Java game which can demonstrate the use of classes, polymorphism, exception handling and various states within the application.
+ * <li>&emsp;A system for a library, pharmacy, store (like HEB, Walmart), office, fitness center, etc. (Lots of possibilities here)
+ * <li>&emsp;A management application for employees, courses, reservations, rentals, etc.
+ * <li>&emsp;Basically anything that is complex enough so you can create requirements/design documents  and you can demonstrate all the OO concepts that we discussed. You are free to pick any complex project.
+ * <br/><br/>
+ * Some required components:<br/>
+ * <li>&emsp;Exception Handling
+ * <li>&emsp;GUI
+ * <li>&emsp;Proper class hierarchy (inheritance/polymorphism/composition), Interfaces
+ * <li>&emsp;Threading (If needed)
+ * </b>
+ * @author Patrick Carroll, Aaron Fortner, James Montis
+ * @version 3.0
+ * @since 2021-5-2
+ */
 public class HazMatMain extends javax.swing.JFrame {
 
+    /**
+     * driver for system,
+     * @param args String unused
+     */
     public static void main(String[] args) {
 
         System.out.println("main page is running..");
@@ -22,150 +51,24 @@ public class HazMatMain extends javax.swing.JFrame {
         // inventory object with inventory arraylist
         HazMatInventory inventory = new HazMatInventory();
 
-        //trial of loading HM sample file into inventory object and saving the same to new file
+        // loading HM sample file into inventory object and (commented out code) utility to create new file
+        // after input of data console output verifies via size of the Arraylist in HazMatInventory
         System.out.printf("arraylist size before: %d\n",inventory.getHazMatStock().size());
         File file = new File("HazMatInv_Data_CSV_File.csv");
         FileOperations.readINTOListHazMatInvItemsFromCSV(file.getAbsolutePath(),inventory.getHazMatStock());
-        System.out.printf("arraylist size after: %d\n",inventory.getHazMatStock().size());
-        try {
-            FileOperations.writeFileToHazMatInvItemsFromCSV("test.csv",inventory.getHazMatStock());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(inventory);
+//        System.out.printf("arraylist size after: %d\n",inventory.getHazMatStock().size());
+//        try {
+//            FileOperations.writeFileToHazMatInvItemsFromCSV("test.csv",inventory.getHazMatStock());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        System.out.println(inventory);
 
     //load front GUI
+
+        // load front end GUI
         FrontGUI frontGUI = new FrontGUI(inventory);
         frontGUI.setVisible(true);
-
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(FrontGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new FrontGUI(inventory).setVisible(true);
-//            }
-//        });
-//    }
-
-//    private void initComponents() {
-//
-//        frameTitle = new javax.swing.JLabel();
-//        msdsButton = new javax.swing.JButton();
-//        managerButton = new javax.swing.JButton();
-//        employeeButton = new javax.swing.JButton();
-//        hazMatButton = new javax.swing.JButton();
-//        picture = new javax.swing.JLabel();
-//        helpButton = new javax.swing.JButton();
-//        exitButton = new javax.swing.JButton();
-//
-//        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-//
-//        frameTitle.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
-//        frameTitle.setText("msdsButton Management System");
-//
-//        msdsButton.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
-//        msdsButton.setText("msdsButton");
-//        /*msdsButton.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                msdsButtonActionPerformed(evt);
-//            }
-//        }); */
-//
-//        managerButton.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
-//        managerButton.setText("Manager");
-//
-//        employeeButton.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
-//        employeeButton.setText("Employee");
-//
-//        hazMatButton.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
-//        hazMatButton.setText("HazMat");
-//
-//        File file = new File("msdsimage.jpg");
-//        picture.setIcon(new javax.swing.ImageIcon(file.getAbsolutePath())); // NOI18N
-//        picture.setText("picture");
-//
-//        helpButton.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
-//        helpButton.setText("Help");
-//
-//        exitButton.setFont(new java.awt.Font("Monospaced", Font.BOLD, 18)); // NOI18N
-//        exitButton.setText("Exit");
-//
-//        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-//        getContentPane().setLayout(layout);
-//        layout.setHorizontalGroup(
-//                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                        .addGroup(layout.createSequentialGroup()
-//                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-//                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                                        .addComponent(frameTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                                        .addGroup(layout.createSequentialGroup()
-//                                                .addGap(24, 24, 24)
-//                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                                                        .addComponent(msdsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-//                                                                .addComponent(hazMatButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-//                                                                .addComponent(employeeButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-//                                                                .addComponent(managerButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-//                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-//                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                                        .addGroup(layout.createSequentialGroup()
-//                                                .addComponent(helpButton)
-//                                                .addGap(50, 50, 50)
-//                                                .addComponent(exitButton))
-//                                        .addComponent(picture, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))
-//        );
-//        layout.setVerticalGroup(
-//                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                        .addGroup(layout.createSequentialGroup()
-//                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                                        .addGroup(layout.createSequentialGroup()
-//                                                .addGap(4, 4, 4)
-//                                                .addComponent(frameTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-//                                                .addComponent(msdsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-//                                                .addComponent(managerButton)
-//                                                .addGap(13, 13, 13)
-//                                                .addComponent(employeeButton))
-//                                        .addGroup(layout.createSequentialGroup()
-//                                                .addContainerGap()
-//                                                .addComponent(picture, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-//                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-//                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                                        .addComponent(hazMatButton)
-//                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-//                                                .addComponent(helpButton)
-//                                                .addComponent(exitButton)))
-//                                .addContainerGap(19, Short.MAX_VALUE))
-//        );
-//        pack();
-//    }
     }
-//    class hazMatButtonListener implements ActionListener {
-//        @Override
-//        public void actionPerformed(ActionEvent a) {
-//
-//            try {
-////                InventoryGUI invenGUI = new InventoryGUI();
-////                invenGUI.setVisible(true);
-////                InventoryController iController = new InventoryController(inventory,invenGUI);
-////                dispose();
-////                stockGUI.saveItemActionPerformedListener(new saveItemListener());
-////                stockGUI.backActionPerformedListener(new backListener());
-//            } catch (Exception e) {
-//                System.out.println("something wrong in addItemActionListener");
-//            }
-//        }
-//    }
 }

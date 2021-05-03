@@ -1,11 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.List;
 import static java.lang.System.exit;
 
+/**
+ * System frontend GUI / start page
+ */
 public class FrontGUI extends javax.swing.JFrame {
 
     private HazMatInventory inventory;
@@ -18,6 +19,10 @@ public class FrontGUI extends javax.swing.JFrame {
     private javax.swing.JLabel menuPicture;
     private javax.swing.JLabel menuTitle;
 
+    /**
+     * constructor
+     * @param subj HazMatInventory inventory object used throughout for Haz Mat item data
+     */
     public FrontGUI(HazMatInventory subj) {
         inventory = subj;
         initComponents(subj);
@@ -203,15 +208,4 @@ public class FrontGUI extends javax.swing.JFrame {
         exit(0);
     }
 
-//    private void hazMatActionPerformedActionPerformedListener(ActionListener mal) {
-//        hazMatButton.addActionListener(mal);
-//    }
-//
-//    private void managerActionPerformedListener(ActionListener mal) {
-//        managerButton.addActionListener(mal);
-//    }
-//
-//    private void employeeActionPerformedListener(ActionListener mal) {
-//        employeeButton.addActionListener(mal);
-//    }
 }

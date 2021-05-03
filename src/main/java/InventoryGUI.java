@@ -15,7 +15,10 @@ public class InventoryGUI extends javax.swing.JFrame {
     private javax.swing.JButton removeItem;
     private javax.swing.JLabel Title;
 
-    // constructor for inventory GUI with passed inventory object
+    /**
+     * constructor for inventory GUI with passed inventory object
+     * @param subj HazMatInventory inventory object used throughout for Haz Mat item data
+     */
     public InventoryGUI(HazMatInventory subj) {
         this.inventory = subj;
         initComponents(subj);

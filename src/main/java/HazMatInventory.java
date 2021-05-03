@@ -59,7 +59,6 @@ public class HazMatInventory {
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "HazMatStock is empty");
         }
-        JOptionPane.showMessageDialog(null, "item not found in inventory");
         return null;
     } // finder for HazMatInventory names
 
@@ -76,7 +75,6 @@ public class HazMatInventory {
                 return null;
             }
         }
-        JOptionPane.showMessageDialog(null, "item not found in inventory");
         return null;
     } // finder for HazMatInventory Stock numbers
 

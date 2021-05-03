@@ -168,43 +168,49 @@ public class HazMatRemoveGUI extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents)
+    }// </editor-fold>//GEN-END:initComponents) else
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        HazMatInventory.HazMatItem temp = null;
-        try {
-            // pull fields out of search GUI to reduce repeated calls
-            String name = getRemoveLabelName();
-            String stockNumber = getRemoveLabelStockNumber();
 
-            // determine if both of the search fields are empty
-            if (!name.isEmpty() || !stockNumber.isEmpty()) {
+        HazMatInventory.HazMatItem temp = null;
+
+        // pull fields out of search GUI to reduce repeated calls
+        String stockNumber = getRemoveLabelStockNumber();
+        String name = getRemoveLabelName();
+
+        // determine if both of the search fields are empty
+        if (!name.equals("") || !stockNumber.equals("")) {
+            try {
                 // check if both populated and if so does name match stock number
-                if (!name.isEmpty() && !stockNumber.isEmpty()) {
-                    if (inventory.nameFinder(name).equals(inventory.stockNumberFinder(stockNumber))) {
-                        temp = inventory.nameFinder(name);
+                if (!name.isEmpty()) {
+                    if (!stockNumber.isEmpty()) {
+                        if (!inventory.nameFinder(name).equals(inventory.stockNumberFinder(stockNumber))) {
+                            JOptionPane.showMessageDialog(null, "Named item " +
+                                    "doesn't match stock number", "Search Error", JOptionPane.ERROR_MESSAGE);
+                        } else {
+                            temp = inventory.nameFinder(name);
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(null, "Named item " +
-                                "doesn't match stock number", "Search Error", JOptionPane.ERROR_MESSAGE);
+                        temp = inventory.nameFinder(name);
                     }
-                    //if one field empty search using other
-                } else if (!name.isEmpty()) {
-                    temp = inventory.nameFinder(name);
                 } else {
-                    temp = inventory.stockNumberFinder(stockNumber);                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Search fields are empty",
+                    temp = inventory.stockNumberFinder(stockNumber);
+                }
+                if (temp != null) {
+                    inventory.removeHazMatItemFromInventory(temp);
+                    new InventoryGUI(inventory).setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "item not found in inventory");
+                }
+            } catch (NullPointerException e) {
+                JOptionPane.showMessageDialog(null, "item not found in inventory",
                         "Search Error", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "Search fields empty",
-                    "Search Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+                JOptionPane.showMessageDialog(null, "Search fields empty",
+                        "Search Error", JOptionPane.ERROR_MESSAGE);
         }
-        if(temp != null) {
-            inventory.removeHazMatItemFromInventory(temp);
-            new InventoryGUI(inventory).setVisible(true);
-            this.dispose();
-        } // for HazMatRemoveGUI button1 ( remove button ) click
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
