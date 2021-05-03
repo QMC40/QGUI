@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ *
+ */
 public class HazMatInventory {
 
     /**
@@ -22,6 +25,7 @@ public class HazMatInventory {
     public ArrayList<HazMatItem> getHazMatStock() {
         return HazMatStock;
     }
+
 
     public boolean isInInventory(HazMatItem subj) {
         return (HazMatStock.contains(subj));

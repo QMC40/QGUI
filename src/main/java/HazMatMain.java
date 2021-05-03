@@ -65,8 +65,6 @@ public class HazMatMain extends javax.swing.JFrame {
 //
 //        System.out.println(inventory);
 
-    //load front GUI
-
         // load front end GUI
         FrontGUI frontGUI = new FrontGUI(inventory);
         frontGUI.setVisible(true);
