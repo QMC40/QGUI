@@ -200,6 +200,9 @@ public class InventoryGUI extends javax.swing.JFrame {
 
     private void HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpActionPerformed
         System.out.println("testing Help button click");
+        this.dispose();
+        JOptionPane.showMessageDialog(null, "Please Contact IT Help at\nhttps://it.tamucc.edu/contactus.html");
+        new FrontGUI(inventory).setVisible(true);
     }
 
     private void BackActionPerformed(ActionEvent evt) {

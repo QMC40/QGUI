@@ -189,6 +189,7 @@ public class FrontGUI extends javax.swing.JFrame {
         System.out.println("testing HazMat button click");
         new InventoryGUI(subj).setVisible(true);
         dispose();
+
     }
 
     private void managerActionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,6 +203,10 @@ public class FrontGUI extends javax.swing.JFrame {
 
     private void helpActionPerformed(java.awt.event.ActionEvent evt) {
         System.out.println("testing Help button click");
+        this.dispose();
+        JOptionPane.showMessageDialog(null, "Please Contact IT Help at\nhttps://it.tamucc.edu/contactus.html");
+        new FrontGUI(inventory).setVisible(true);
+
     }
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {
