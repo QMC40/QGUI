@@ -202,6 +202,7 @@ public class InventoryGUI extends javax.swing.JFrame {
         System.out.println("testing Help button click");
         this.dispose();
         JOptionPane.showMessageDialog(null, "Please Contact IT Help at\nhttps://it.tamucc.edu/contactus.html");
+
         new FrontGUI(inventory).setVisible(true);
     }
 

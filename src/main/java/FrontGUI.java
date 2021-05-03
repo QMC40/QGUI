@@ -22,6 +22,7 @@ public class FrontGUI extends javax.swing.JFrame {
     /**
      * constructor
      * @param subj HazMatInventory inventory object used throughout for Haz Mat item data
+     * @return none
      */
     public FrontGUI(HazMatInventory subj) {
         inventory = subj;
